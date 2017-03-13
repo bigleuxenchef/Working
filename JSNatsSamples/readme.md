@@ -92,3 +92,8 @@ go run nats-bench.go -s http://192.168.0.10:4222  -np 4 -ns 10 -n 1000000 -ms 10
 
 ```
 ![alt text](https://github.com/bigleuxenchef/Working/blob/master/JSNatsSamples/images/10%20sub%204%20pub%20.png "natstop")
+
+
+####Here are the execution results from `nats-bench.go`
+
+![alt text](https://github.com/bigleuxenchef/Working/blob/master/JSNatsSamples/images/10%20sub%204%20pub%20execution%20results.png)
