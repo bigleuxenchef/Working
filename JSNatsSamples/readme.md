@@ -87,4 +87,8 @@ Remark to test Elk plugin, it is required to make sure you are publishing in jso
 ```
 # running 4 publishers 10 subscribers for 1,000,000 messages of size 1000 on topic stan-pub.go
 go run nats-bench.go -s http://192.168.0.10:4222  -np 4 -ns 10 -n 1000000 -ms 10000 stan-pub.go
+
+####Here is an example of natstop that highlights the activity on the server during the processing
+
 ```
+![alt text](https://github.com/bigleuxenchef/Working/blob/master/JSNatsSamples/images/10%20sub%204%20pub%20.png "natstop")
