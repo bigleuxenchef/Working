@@ -82,7 +82,6 @@ This is clear that Parse and Run is much faster than evaluate, no big deal but w
 ## Groovy in Java
 
 ```
-
 package rules;
 
 import java.io.*;
@@ -111,13 +110,11 @@ public class myJruleengine {
 
 		long TimeDuration = System.currentTimeMillis() - timeStart;
 
-		System.out.printf("\nInline Results ***** duration %d millis result %d\nBye world!", TimeDuration, k);
+		System.out.printf("\nJava/Inline        Results Iteration # %d duration %d millis result %d\n", i, TimeDuration, k);
 
 	}
 
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		System.out.println("hello world!");
 
 		long a = 8;
 		long b = 9;
@@ -145,14 +142,13 @@ public class myJruleengine {
 
 		long TimeDuration = System.currentTimeMillis() - timeStart;
 
-		System.out.printf("\nJava/Groovy Script Results duration %d millis result %d\nBye world!", TimeDuration, k);
+		System.out.printf("\nJava/Groovy Script Results Iteration # %d duration %d millis result %d\n",i, TimeDuration, k);
 
 		myinlinescript();
 
 	}
 
 }
-
 ```
 
 
