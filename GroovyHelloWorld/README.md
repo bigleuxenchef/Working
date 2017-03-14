@@ -155,3 +155,13 @@ public class myJruleengine {
 
 ```
 
+
+## Results
+
+```
+
+Java/Groovy Script Results duration 126 millis result 5000850000
+Bye world!
+Inline Results ***** duration 3 millis result 5000850000
+
+```
