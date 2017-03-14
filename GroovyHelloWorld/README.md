@@ -41,7 +41,7 @@ TimeDuration duration = TimeCategory.minus(timeStop, timeStart)
 
 println("Groovy Script Results duration ${duration} millis result ${k}\n")
 ```
-here is the file ```myrule.txt``
+here is the file `myrule.txt`
 
 ```
  if (a > b)  a + c else b + c
@@ -53,9 +53,9 @@ here is the file ```myrule.txt``
 * here the piece of code does not know anything about `a`, `b` or `c` but the program using the code does.
 
 * Groovy can evaluate the script in two steps as required in this case either running either
-..
-`shell.evaluate(myscript)`
+..* `shell.evaluate(myscript)`
 or
-..
-shell.parse(myscript)
+..* shell.parse(myscript)
 `script1.run()`
+
+
