@@ -54,9 +54,13 @@ here is the file `myrule.txt`
 
 * Groovy can evaluate the script in two steps as required in this case either running either
 
-...`shell.evaluate(myscript)`
-...or
-...`shell.parse(myscript)`
-...`script1.run()`
+```
+shell.evaluate(myscript)
+```
+or
+```
+shell.parse(myscript)
+script1.run()
+```
 
 
