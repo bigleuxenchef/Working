@@ -5,6 +5,8 @@ This section is dedicated to explore Groovy in the context of integration of scr
 
 # Mini rules engine
 
+## 100% Groovy
+
 let's look first at the following Groovy script
 
 ```
@@ -63,4 +65,93 @@ shell.parse(myscript)
 script1.run()
 ```
 
+## Results
+```
+Using Parse and Run Iteration # 100
+Groovy Script Results duration 0.021 seconds millis result 5850
+
+Using Evaluate Iteration # 100
+Groovy Script Results duration 0.899 seconds millis result 5850
+
+
+```
+
+This is clear that Parse and Run is much faster than evaluate, no big deal but worth mentioning this without affecting any of the feature like bindings.
+
+
+## Groovy in Java
+
+```
+
+package rules;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import groovy.lang.Binding;
+import groovy.lang.GroovyShell;
+import groovy.lang.Script;
+
+public class myJruleengine {
+	static void myinlinescript() {
+		long a = 8;
+		long b = 9;
+		long i = 0;
+		long k = 0;
+		long timeStart = System.currentTimeMillis();
+
+		for (i = 0; i < 100000; i++) {
+			
+			//System.out.printf("*a : %d b : %d c : %d\n",a,b,k);
+
+			k += (a > b) ? a + i : b + i;
+
+		}
+
+		long TimeDuration = System.currentTimeMillis() - timeStart;
+
+		System.out.printf("\nInline Results ***** duration %d millis result %d\nBye world!", TimeDuration, k);
+
+	}
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("hello world!");
+
+		long a = 8;
+		long b = 9;
+		long i = 0;
+
+		Binding binding = new Binding();
+		binding.setVariable("a", a);
+		binding.setVariable("b", b);
+
+		GroovyShell shell = new GroovyShell(binding);
+
+		String myscript = new String(Files.readAllBytes(Paths.get("src/rules/myrule.txt")));
+
+		Script script1 = shell.parse(myscript);
+		long k = 0;
+		long timeStart = System.currentTimeMillis();
+		// shell.setVariable("c",i);
+
+		for (i = 0; i < 100000; i++) {
+			shell.setVariable("c", i);
+
+			k += Integer.parseInt((script1.run()).toString());
+			// script1.run();
+		}
+
+		long TimeDuration = System.currentTimeMillis() - timeStart;
+
+		System.out.printf("\nJava/Groovy Script Results duration %d millis result %d\nBye world!", TimeDuration, k);
+
+		myinlinescript();
+
+	}
+
+}
+
+```
 
