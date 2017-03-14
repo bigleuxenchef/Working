@@ -1,1 +1,2 @@
+//println "a : ${a} b : ${b} c : ${c}"
  if (a > b)  a + c else b + c
