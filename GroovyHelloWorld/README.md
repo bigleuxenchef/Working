@@ -53,9 +53,10 @@ here is the file `myrule.txt`
 * here the piece of code does not know anything about `a`, `b` or `c` but the program using the code does.
 
 * Groovy can evaluate the script in two steps as required in this case either running either
-... `shell.evaluate(myscript)`
-... or
-... `shell.parse(myscript)`
-... `script1.run()`
+
+...`shell.evaluate(myscript)`
+...or
+...`shell.parse(myscript)`
+...`script1.run()`
 
 
