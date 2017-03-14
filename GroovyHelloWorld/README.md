@@ -137,7 +137,6 @@ public class myJruleengine {
 			shell.setVariable("c", i);
 
 			k += Integer.parseInt((script1.run()).toString());
-			// script1.run();
 		}
 
 		long TimeDuration = System.currentTimeMillis() - timeStart;

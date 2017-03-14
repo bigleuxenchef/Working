@@ -62,7 +62,5 @@ public class myJruleengine {
 		System.out.printf("\nJava/Groovy Script Results Iteration # %d duration %d millis result %d\n",i, TimeDuration, k);
 
 		myinlinescript();
-
 	}
-
 }
