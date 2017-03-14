@@ -159,9 +159,7 @@ public class myJruleengine {
 ## Results
 
 ```
-
-Java/Groovy Script Results duration 126 millis result 5000850000
-Bye world!
-Inline Results ***** duration 3 millis result 5000850000
+Java/Groovy Script Results Iteration # 100000 duration 121 millis result 5000850000
+Java/Inline        Results Iteration # 100000 duration 4 millis result 5000850000
 
 ```

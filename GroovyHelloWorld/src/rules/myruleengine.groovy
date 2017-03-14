@@ -26,7 +26,7 @@ script1 = shell.parse(myscript)
 def timeStart = new Date()
 //shell.setVariable("c",i)
 
-for(i = 0; i< 100000;i++)
+for(i = 0; i< 100;i++)
 {
 	shell.setVariable("c",i)
 	k+=script1.run()
@@ -36,7 +36,20 @@ def timeStop = new Date()
 
 TimeDuration duration = TimeCategory.minus(timeStop, timeStart)
 
-println("Groovy Script Results duration ${duration} millis result ${k}\n") 
+println("Using Parse and Run Iteration # ${i}\nGroovy Script Results duration ${duration} millis result ${k}\n") 
 
-
+timeStart = new Date()
+k = 0 
+for(i = 0; i< 100;i++)
+	{
+		shell.setVariable("c",i)
+		k+=shell.evaluate(myscript)
+	}
+	
+	timeStop = new Date()
+	
+	duration = TimeCategory.minus(timeStop, timeStart)
+	
+	println("Using Evaluate Iteration # ${i}\nGroovy Script Results duration ${duration} millis result ${k}\n")
+	
 
