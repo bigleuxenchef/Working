@@ -1,20 +1,13 @@
-#Groovy 'Hello World' samples
+# Groovy 'Hello World' samples
 
 This section is dedicated to explore Groovy in the context of integration of scripting language in solution.
 
 
-#Mini rules engine
+# Mini rules engine
 
 let's look first at the following Groovy script
 
 ```
-/**
- * 
- */
-/**
- * @author rumi march 2017
- *
- */
 package rules;
 import groovy.time.*
 
@@ -48,13 +41,21 @@ TimeDuration duration = TimeCategory.minus(timeStop, timeStart)
 
 println("Groovy Script Results duration ${duration} millis result ${k}\n")
 ```
-here is the file myrule.txt
+here is the file ```myrule.txt``
 
 ```
  if (a > b)  a + c else b + c
 ```
 
 
-the goal here is to demonstrate how Groovy can dynamically consumed a piece of code and binds the paramters that are referenced in the piece of code that can come anytime in the process (stored in file, prompted from user or part of hastable as building block for 'mini rules engine').
+* the goal here is to demonstrate how Groovy can dynamically consumed a piece of code and binds the parameters that are referenced in the piece of code that can come any time in the process (stored in file, prompted from user or part of hastable as building block for 'mini rules engine').
 
+* here the piece of code does not know anything about `a`, `b` or `c` but the program using the code does.
 
+* Groovy can evaluate the script in two steps as required in this case either running either
+..
+`shell.evaluate(myscript)`
+or
+..
+shell.parse(myscript)
+`script1.run()`
