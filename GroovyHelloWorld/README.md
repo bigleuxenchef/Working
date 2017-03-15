@@ -65,7 +65,7 @@ shell.parse(myscript)
 script1.run()
 ```
 
-## Results
+### Results
 ```
 Using Parse and Run Iteration # 100
 Groovy Script Results duration 0.021 seconds millis result 5850
@@ -151,10 +151,126 @@ public class myJruleengine {
 ```
 
 
-## Results
+### Results
 
 ```
 Java/Groovy Script Results Iteration # 100000 duration 121 millis result 5000850000
 Java/Inline        Results Iteration # 100000 duration 4 millis result 5000850000
 
 ```
+
+
+
+
+note
+
+next assignment : inject closure into script ...
+http://mrhaki.blogspot.ca/2010/08/groovy-goodness-store-closures-in.html
+
+
+## Groovy through Java Scripting API
+
+this can be achieve using `javax.script.*` and most particularly the java object `ScriptEngineManager`
+
+```
+package rules;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
+public class myJruleengine2 {
+
+	public static void main(String[] args) throws IOException, ScriptException {
+		long a = 8;
+		long b = 9;
+		long i = 0;
+		long k = 0;
+
+		ScriptEngineManager factory = new ScriptEngineManager();
+		ScriptEngine engine = factory.getEngineByName("groovy");
+
+		engine.put("a", a);
+		engine.put("b", b);
+		engine.put("c", i);
+
+		long timeStart = System.currentTimeMillis();
+
+		String myscript = new String(Files.readAllBytes(Paths.get("src/rules/myrule.txt")));
+
+		for (i = 0; i < 100000; i++) {
+			engine.put("c", i);
+			k += Long.parseLong(engine.eval(myscript).toString());
+			//System.out.printf("*a : %d b : %d c : %d\n",a,b,k);
+
+		}
+
+		long TimeDuration = System.currentTimeMillis() - timeStart;
+
+		System.out.printf("\nJava Scripting API/Groovy  Results Iteration # %d duration %d millis result %d\n",i, TimeDuration, k);
+
+	}
+
+}
+```
+
+### Results
+
+```
+Java Scripting API/Groovy  Results Iteration # 100000 duration 1459 millis result 5000850000
+```
+
+## Conclusions
+
+### Results
+
+```
+Java/Groovy Script Results Iteration # 100000 duration 121 millis result 5000850000
+Java/Inline        Results Iteration # 100000 duration 4 millis result 5000850000
+Java Scripting API/Groovy  Results Iteration # 100000 duration 1459 millis result 5000850000
+```
+
+The results speak for themselves. However let's try to see if we can decouple compilation from execution on JAX API.
+
+interestingly by using the `Compile` interface of `ScriptEngine`, we can decoupled the compilation from the execution and result are better but still more than Groovy scripting API
+
+here is the code to considered
+
+```java
+// run with compiled script first to reduce overhead of parsing
+		timeStart = System.currentTimeMillis();
+
+		CompiledScript cs;
+				
+				cs = ((Compilable )engine).compile(myscript);
+				k=0;
+		
+				for (i = 0; i < 100000; i++) {
+					engine.put("c", i);
+					k += Long.parseLong(cs.eval().toString());
+					//System.out.printf("*a : %d b : %d c : %d\n",a,b,k);
+
+				}
+
+				TimeDuration = System.currentTimeMillis() - timeStart;
+
+				System.out.printf("\nCompiled Script\n"
+						+ "Java Scripting API/Groovy  Results Iteration # %d duration %d millis result %d\n",i, TimeDuration, k);
+```
+
+
+###Results
+
+```java
+Eval script
+Java Scripting API/Groovy  Results Iteration # 100000 duration 1545 millis result 5000850000
+
+Compiled Script
+Java Scripting API/Groovy  Results Iteration # 100000 duration 551 millis result 5000850000
+```
+
+

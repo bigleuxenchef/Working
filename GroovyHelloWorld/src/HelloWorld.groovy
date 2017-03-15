@@ -1,8 +1,8 @@
 
-class test {
+class myBaseClass {
 	int a,b;
 	String sum;
-	test()
+	myBaseClass()
 	{
 		a=0;b=0;
 	}
@@ -16,11 +16,11 @@ class test {
 class HelloWorld {
 	
 	static main(args) {
-		def mytest = new test();
-		test.a = 5;
-		test.b = 6;
-		test.sum = "{ a + b};"
-		def mysum = "The sum of 2 and 3 equals ${test.a + test.b}"
+		def mytest = new myBaseClass();
+		mytest.a = 5;
+		mytest.b = 6;
+		mytest.sum = "{ a + b};"
+		def mysum = "The sum of 2 and 3 equals ${mytest.a + mytest.b}"
 		System.out.println("result %d\n",5);
 		System.out.println("Hello World");
 	

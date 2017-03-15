@@ -9,7 +9,7 @@ import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 import groovy.lang.Script;
 
-public class myJruleengine {
+public class myJruleengine1 {
 	static void myinlinescript() {
 		long a = 8;
 		long b = 9;
@@ -19,10 +19,9 @@ public class myJruleengine {
 
 		for (i = 0; i < 100000; i++) {
 			
-			//System.out.printf("*a : %d b : %d c : %d\n",a,b,k);
 
 			k += (a > b) ? a + i : b + i;
-
+			//System.out.printf("*a : %d b : %d c : %d\n",a,b,k);
 		}
 
 		long TimeDuration = System.currentTimeMillis() - timeStart;
@@ -54,6 +53,7 @@ public class myJruleengine {
 			shell.setVariable("c", i);
 
 			k += Integer.parseInt((script1.run()).toString());
+			System.out.printf("*a : %d b : %d c : %d\n",a,b,k);
 			// script1.run();
 		}
 
