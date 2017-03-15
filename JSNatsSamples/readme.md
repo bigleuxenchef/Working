@@ -1,10 +1,10 @@
-#JSNatsSamples
+# JSNatsSamples
 
 this section relates to the streaming technology NATS.io this is a lightweight messaging technology written in language go! very efficient, easy to deploy.
 
-##Prerequisites
+## Prerequisites
 
-##OSX
+## OSX
 ```
 >brew install go
 `#create directory /usr/local/Cellar/go/1.8/libexec/src/github.com/nats-io
@@ -12,7 +12,7 @@ this section relates to the streaming technology NATS.io this is a lightweight m
 >git clone https://github.com/nats-io/nats-streaming-server.git
 >git clone https://github.com/nats-io/go-nats-streaming.git
 ```
-##Linux Ubuntu
+## Linux Ubuntu
 ```
 >sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
 >sudo apt-get update
@@ -32,7 +32,7 @@ sudo -E go get github.com/nats-io/go-nats
 ```
 
 
-##Test on two machines
+## Test on two machines
 
 each client that wants to publish can do it the following way
 
@@ -53,7 +53,7 @@ Each client that wants to subscribe can do it the following way
 Elasticsearch
 ```
 
-###Prerequisite
+### Prerequisite
 
 Glide package manager
 
