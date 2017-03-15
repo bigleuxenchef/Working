@@ -29,10 +29,12 @@ The reason of this use case is to test and validate the usage of Groovy as a pot
 I thought if we could do something more like her under, it would be not only easier to use for the end user but it will reduce the maintenance.
 
 ```json
+{
 "RuleID": <id>,
 "RuleName" : <name>,
 "ScriptTpye" : "Groovy"|"JavaScript"|...
 "Script": "if (a != b && c == z) { <do something>} else result = a + z"
+}
 ```
 
 

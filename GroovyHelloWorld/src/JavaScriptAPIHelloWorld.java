@@ -1,13 +1,10 @@
 
-	import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import javax.script.ScriptEngine;
-		import javax.script.ScriptEngineManager;
-		import javax.script.ScriptException;
+import javax.script.ScriptEngineManager;
 
-
-
-public class BSFAkaBeanScriptingFrameWorkHelloWorld {
+public class JavaScriptAPIHelloWorld {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
@@ -21,6 +18,7 @@ public class BSFAkaBeanScriptingFrameWorkHelloWorld {
 		engine.put("second", "world");
 		String result = (String) engine.eval("first.toLowerCase() + ' ' + second.toUpperCase()");
 		assertEquals("hello WORLD", result);
+		System.out.println("done!");
 	}
 
 }
