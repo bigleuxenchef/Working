@@ -1,6 +1,40 @@
+Disclaimer
+
+I am interested in testing technologies and the best way is to do it yourself and experiment. Just do what others did already is a way to learn. This is why I posting what I have done by myself without any pretending to invent or teach anything to anyone.
+
+Happy to share with anyone, happy anyone takes a copy, but I would recommend not to use any of this material as it is more for personal experiment than to achieve anything special other than learning.
+
+
 # Groovy 'Hello World' samples
 
-This section is dedicated to explore Groovy in the context of integration of scripting language in solution.
+This section is dedicated to explore Groovy in the context of the integration of scripting language in solution.
+The reason of this use case is to test and validate the usage of Groovy as a potential solution for Rules engine. At this very moment someone has come to me with a solution where scripting will be a json files where hierarchy will model operator and operands structure. The need was to allow 'IF ... THEN ... ELSE ..." simple rule (where the condition can be quite complex). I thought their should be a easier way as well as more practical of trying building the rule itself as json rather than a script
+
+```json
+{
+"RuleID": <id>,
+"RuleName" : <name>,
+"Rule" : {
+"LeftOperand" : <value>,
+"RightOperand" : <value>,
+"Operator": <operator>
+},
+"Operator":<operator>
+...
+...
+...
+}
+```
+
+I thought if we could do something more like her under, it would be not only easier to use for the end user but it will reduce the maintenance.
+
+```json
+"RuleID": <id>,
+"RuleName" : <name>,
+"ScriptTpye" : "Groovy"|"JavaScript"|...
+"Script": "if (a != b && c == z) { <do something>} else result = a + z"
+```
+
 
 
 # Mini rules engine
