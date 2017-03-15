@@ -28,41 +28,42 @@ public class myJruleengine2 {
 		long timeStart = System.currentTimeMillis();
 
 		String myscript = new String(Files.readAllBytes(Paths.get("src/rules/myrule.txt")));
-		
-				
+
 		for (i = 0; i < 100000; i++) {
 			engine.put("c", i);
 			k += Long.parseLong(engine.eval(myscript).toString());
-			//System.out.printf("*a : %d b : %d c : %d\n",a,b,k);
+			// System.out.printf("*a : %d b : %d c : %d\n",a,b,k);
 
 		}
 
 		long TimeDuration = System.currentTimeMillis() - timeStart;
 
-		System.out.printf("\nEval script\n"
-				+ "Java Scripting API/Groovy  Results Iteration # %d duration %d millis result %d\n",i, TimeDuration, k);
+		System.out.printf(
+				"\nEval script\n" + "Java Scripting API/Groovy  Results Iteration # %d duration %d millis result %d\n",
+				i, TimeDuration, k);
 
-	// run with compiled script first to reduce overhead of parsing
+		// run with compiled script first to reduce overhead of parsing
 		timeStart = System.currentTimeMillis();
 
 		CompiledScript cs;
-				
-				cs = ((Compilable )engine).compile(myscript);
-				k=0;
-		
-				for (i = 0; i < 100000; i++) {
-					engine.put("c", i);
-					k += Long.parseLong(cs.eval().toString());
-					//System.out.printf("*a : %d b : %d c : %d\n",a,b,k);
 
-				}
+		cs = ((Compilable) engine).compile(myscript);
+		k = 0;
 
-				TimeDuration = System.currentTimeMillis() - timeStart;
+		for (i = 0; i < 100000; i++) {
+			engine.put("c", i);
+			k += Long.parseLong(cs.eval().toString());
+			// System.out.printf("*a : %d b : %d c : %d\n",a,b,k);
 
-				System.out.printf("\nCompiled Script\n"
-						+ "Java Scripting API/Groovy  Results Iteration # %d duration %d millis result %d\n",i, TimeDuration, k);
+		}
 
-		
+		TimeDuration = System.currentTimeMillis() - timeStart;
+
+		System.out.printf(
+				"\nCompiled Script\n"
+						+ "Java Scripting API/Groovy  Results Iteration # %d duration %d millis result %d\n",
+				i, TimeDuration, k);
+
 	}
 
 }

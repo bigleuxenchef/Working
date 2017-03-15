@@ -81,7 +81,7 @@ This is clear that Parse and Run is much faster than evaluate, no big deal but w
 
 ## Groovy in Java
 
-```
+```java
 package rules;
 
 import java.io.*;
@@ -172,7 +172,7 @@ http://mrhaki.blogspot.ca/2010/08/groovy-goodness-store-closures-in.html
 
 this can be achieve using `javax.script.*` and most particularly the java object `ScriptEngineManager`
 
-```
+```java
 package rules;
 
 import java.io.IOException;
@@ -241,29 +241,31 @@ interestingly by using the `Compile` interface of `ScriptEngine`, we can decoupl
 here is the code to considered
 
 ```java
-// run with compiled script first to reduce overhead of parsing
+	// run with compiled script first to reduce overhead of parsing
 		timeStart = System.currentTimeMillis();
 
 		CompiledScript cs;
-				
-				cs = ((Compilable )engine).compile(myscript);
-				k=0;
-		
-				for (i = 0; i < 100000; i++) {
-					engine.put("c", i);
-					k += Long.parseLong(cs.eval().toString());
-					//System.out.printf("*a : %d b : %d c : %d\n",a,b,k);
 
-				}
+		cs = ((Compilable) engine).compile(myscript);
+		k = 0;
 
-				TimeDuration = System.currentTimeMillis() - timeStart;
+		for (i = 0; i < 100000; i++) {
+			engine.put("c", i);
+			k += Long.parseLong(cs.eval().toString());
+			// System.out.printf("*a : %d b : %d c : %d\n",a,b,k);
 
-				System.out.printf("\nCompiled Script\n"
-						+ "Java Scripting API/Groovy  Results Iteration # %d duration %d millis result %d\n",i, TimeDuration, k);
+		}
+
+		TimeDuration = System.currentTimeMillis() - timeStart;
+
+		System.out.printf(
+				"\nCompiled Script\n"
+						+ "Java Scripting API/Groovy  Results Iteration # %d duration %d millis result %d\n",
+				i, TimeDuration, k);
 ```
 
 
-###Results
+### Results
 
 ```java
 Eval script
