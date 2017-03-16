@@ -1,6 +1,4 @@
-/**
- *
- */
+package Closure
 /**
  * @author rumi march 2017
  *

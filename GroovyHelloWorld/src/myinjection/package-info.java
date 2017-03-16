@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author rumi
- *
- */
-package myinjection;

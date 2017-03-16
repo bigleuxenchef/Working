@@ -2,7 +2,7 @@ package GroovyExamples;
 
 import groovy.lang.Closure ;
 
-public class Example extends Closure {
+public class Example extends Closure<Object> {
   /**
 	 * 
 	 */
