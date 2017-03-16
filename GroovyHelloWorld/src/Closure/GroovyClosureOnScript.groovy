@@ -24,6 +24,16 @@ myscript = new File("src/Closure/myrule.txt").text
 
 script1 = shell.parse(myscript)
 Closure cs = script1.run()
-for(i = 0 ; i < 10; i++)
+for(i = 0 ; i < 3; i++)
 	cs({A -> A * 2 * i},10 - i)
+	
+	
+myscript = new File("src/Closure/myrule2.txt").text
+script1 = shell.parse(myscript)
+cs = script1.run()
+Closure c2
+z = 5
+c2 = {it-> cs(it)}
+
+print "Closure in a Closure from GroovyScript" c2(3)
 

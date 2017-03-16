@@ -1,0 +1,4 @@
+// Rumi march 2017
+// this script will be consumed by GroovyShell
+
+{a -> a + b}
