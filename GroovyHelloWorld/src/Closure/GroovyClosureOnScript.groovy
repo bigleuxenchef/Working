@@ -1,0 +1,29 @@
+/**
+ *
+ */
+/**
+ * @author rumi march 2017
+ *
+ */
+package Closure;
+import groovy.time.*
+
+long a = 8
+long b = 9
+long i = 10
+long k = 0
+
+Binding binding = new Binding();
+binding.setVariable("a", a);
+binding.setVariable("b", b);
+
+GroovyShell shell = new GroovyShell(binding);
+
+
+myscript = new File("src/Closure/myrule.txt").text
+
+script1 = shell.parse(myscript)
+Closure cs = script1.run()
+for(i = 0 ; i < 10; i++)
+	cs({A -> A * 2 * i},10 - i)
+

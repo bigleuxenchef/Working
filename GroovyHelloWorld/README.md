@@ -195,15 +195,6 @@ Java/Inline        Results Iteration # 100000 duration 4 millis result 500085000
 
 ```
 
-
-
-
-note
-
-next assignment : inject closure into script ...
-http://mrhaki.blogspot.ca/2010/08/groovy-goodness-store-closures-in.html
-
-
 ## Groovy through Java Scripting API
 
 this can be achieve using `javax.script.*` and most particularly the java object `ScriptEngineManager`
@@ -310,5 +301,25 @@ Java Scripting API/Groovy  Results Iteration # 100000 duration 1545 millis resul
 Compiled Script
 Java Scripting API/Groovy  Results Iteration # 100000 duration 551 millis result 5000850000
 ```
+
+
+
+### Interesting link
+
+http://groovy-lang.org/dsls.html
+http://groovy-lang.org/integrating.html#jsr223
+http://www.programcreek.com/java-api-examples/groovy.lang.GroovyShell
+http://www.programcreek.com/java-api-examples/index.php?api=javax.script.CompiledScript
+http://www.mrhaki.com/
+
+
+
+
+
+
+note
+
+next assignment : inject closure into script ...
+http://mrhaki.blogspot.ca/2010/08/groovy-goodness-store-closures-in.html
 
 

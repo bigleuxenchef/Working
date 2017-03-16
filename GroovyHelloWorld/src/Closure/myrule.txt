@@ -1,0 +1,12 @@
+// Rumi march 2017
+// this script will be consumed by GroovyShell
+// you can remove the comment on prinln to display each time the rule is invoked
+// println "a : ${a} b : ${b} c : ${c}"
+// here under is the rule that will be consumed by GroovyShell,
+// parameters a, b and c will be "binded"
+//{c -> if (a > b)  a + c(3) else b + c(4)}
+{a, b ->
+  print "This closure does not take any arguments."
+  print " Yes it takes ! closure (b) " 
+  println a(b)
+}
