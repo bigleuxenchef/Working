@@ -1,3 +1,9 @@
+
+/**
+ * @author rumi march 2017
+ * this program illustrate the usage of Java Script API with Groovy, trying to compare the equivalent with Groovy Shell
+ */
+
 package rules;
 
 import java.io.IOException;
