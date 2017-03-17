@@ -309,7 +309,7 @@ Java Scripting API/Groovy  Results Iteration # 100000 duration 551 millis result
 # RUN Samples
 
 ```
-//from ecliple
+//from eclipse
 //Case 1
 
 launch myJruleengine1.java
@@ -324,7 +324,7 @@ launch myJruleengine1.groovy
 
 # Explore the power of scripting
 
-# File `myrule.txt'
+#### File `myrule.txt'
 
 Play with the file and launch again case 1-3
 as example 

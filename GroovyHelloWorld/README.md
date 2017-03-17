@@ -16,7 +16,11 @@ This package highlights the interopeability between java and groovy
 #### [JavaScriptAPIHelloWorld](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/JavaScriptAPIHelloWorld.java)
   
 
-Demonstrate the use of java script API with groovy as engine
+Demonstrate the use of java script API with groovy/python as engine
+
+##### Prerequisite 
+In Eclipse Groovy plug-in comes with everything including GroovyConsole
+Install Python plugin and [jython.jar](http://www.jython.org/downloads.html).
 
 ```java
 import static org.junit.Assert.assertEquals;
