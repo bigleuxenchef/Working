@@ -294,7 +294,11 @@ here is the code to considered
 
 ### Results
 
-```java
+```
+Java/Groovy Script Results Iteration # 100000 duration 121 millis result 5000850000
+
+Java/Inline        Results Iteration # 100000 duration 4 millis result 5000850000
+
 Eval script
 Java Scripting API/Groovy  Results Iteration # 100000 duration 1545 millis result 5000850000
 
@@ -302,6 +306,42 @@ Compiled Script
 Java Scripting API/Groovy  Results Iteration # 100000 duration 551 millis result 5000850000
 ```
 
+# RUN Samples
+
+```
+//from ecliple
+//Case 1
+
+launch myJruleengine1.java
+
+//Case 2
+launch myJruleengine2.java
+
+//Case 3
+
+launch myJruleengine1.groovy
+```
+
+# Explore the power of scripting
+
+# File `myrule.txt'
+
+Play with the file and launch again case 1-3
+as example 
+  * uncomment the line `println ...`
+  * uncomment the line `if (a > b)  a + c else (2 *b) + c + a` and comment the last line
+
+
+```
+// Rumi march 2017
+// this script will be consumed by GroovyShell
+// you can remove the comment on println to display each time the rule is invoked
+// println "a : ${a} b : ${b} c : ${c}"
+// here under is the rule that will be consumed by GroovyShell,
+// parameters a, b and c will be "binded"
+//if (a > b)  a + c else (2 *b) + c + a 
+ if (a > b)  a + c else b + c
+```
 
 
 ### Interesting link
