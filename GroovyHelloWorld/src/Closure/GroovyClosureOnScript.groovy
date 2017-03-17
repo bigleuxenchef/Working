@@ -1,4 +1,4 @@
-package Closure
+//package Closure
 /**
  * @author rumi march 2017
  *
@@ -33,5 +33,5 @@ Closure c2
 z = 5
 c2 = {it-> cs(it)}
 
-print "Closure in a Closure from GroovyScript" c2(3)
+print "Closure in a Closure from GroovyScript :" + c2(3)
 
