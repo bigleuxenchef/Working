@@ -5,7 +5,6 @@
  * @author rumi march 2017
  *
  */
-package rules;
 import groovy.time.*
 
 long a = 8

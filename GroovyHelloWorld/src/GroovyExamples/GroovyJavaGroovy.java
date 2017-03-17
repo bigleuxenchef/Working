@@ -1,5 +1,4 @@
 package GroovyExamples;
-import GroovyExamples.*;
 
 public class GroovyJavaGroovy {
 

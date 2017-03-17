@@ -22,6 +22,8 @@ Demonstrate the use of java script API with groovy/python as engine
 In Eclipse Groovy plug-in comes with everything including GroovyConsole
 Install Python plugin and [jython.jar](http://www.jython.org/downloads.html).
 
+### Java Script API calling Groovy
+
 ```java
 import static org.junit.Assert.assertEquals;
 
@@ -45,6 +47,25 @@ public class JavaScriptAPIHelloWorld {
 
 }
 ```
+#### Java Script API calling python
+
+```java
+// Java Script API with Python
+		ScriptEngineManager mgr = new ScriptEngineManager();
+		ScriptEngine pyEngine = mgr.getEngineByName("python");
+
+		// eval a string representing python string
+		pyEngine.put("varbound", 67);
+
+		pyEngine.eval("print \"Python - Hello, world! {}\".format(varbound)");
+
+		// eval a python script file with bindings features
+
+		pyEngine.eval(new String(Files.readAllBytes(Paths.get("src/pyhelloworld.py"))));
+
+		System.out.println("done!");
+```
+
 #### [Groovy Closure](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/Closure)
 
 After the inter-operability between java and groovy, we are ready now for exploring the power of closure, which allow returning function from groovy to java and injecting function into a groovy script. This is going to create a lot of good options for the one who wants to play with scripting at runtime.
