@@ -25,15 +25,7 @@ Install Python plugin and [jython.jar](http://www.jython.org/downloads.html).
 - - -
 ### Java Script API calling Groovy
 
-```java
-import static org.junit.Assert.assertEquals;
-
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-
-public class JavaScriptAPIHelloWorld {
-
-	public static void main(String[] args) throws Exception {	
+```java	
 		ScriptEngineManager factory = new ScriptEngineManager();
 		ScriptEngine engine = factory.getEngineByName("groovy");
 		Integer sum = (Integer) engine.eval("(1..10).sum()");
@@ -42,11 +34,6 @@ public class JavaScriptAPIHelloWorld {
 		engine.put("first", "HELLO");
 		engine.put("second", "world");
 		String result = (String) engine.eval("first.toLowerCase() + ' ' + second.toUpperCase()");
-		assertEquals("hello WORLD", result);
-		System.out.println("done!");
-	}
-
-}
 ```
 
 - - -
@@ -66,8 +53,6 @@ public class JavaScriptAPIHelloWorld {
 		// eval a python script file with bindings features
 
 		pyEngine.eval(new String(Files.readAllBytes(Paths.get("src/pyhelloworld.py"))));
-
-		System.out.println("done!");
 ```
 
 #### [Groovy Closure](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/Closure)
