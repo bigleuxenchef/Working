@@ -8,6 +8,7 @@ This section is dedicated at exploring various use cases around Groovy usage
 - Using groovy from java 
   * Case 1 : using groovy java api
   * Case 2 : using Java Script API (for both Python and Groovy)
+  * Case 3 : wrapping up groovy script in a java class to alleviate bindings challenges.
   
 #### [package javainterop](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/javainterop)
   

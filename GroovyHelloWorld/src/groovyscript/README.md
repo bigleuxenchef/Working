@@ -413,6 +413,8 @@ http://www.programcreek.com/java-api-examples/groovy.lang.GroovyShell
 http://www.programcreek.com/java-api-examples/index.php?api=javax.script.CompiledScript
 http://www.mrhaki.com/
 
+Complete factory in java/python (good pattern to start)
+http://www.jython.org/jythonbook/en/1.0/JythonAndJavaIntegration.html
 
 
 
