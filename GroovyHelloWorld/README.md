@@ -22,6 +22,7 @@ Demonstrate the use of java script API with groovy/python as engine
 In Eclipse Groovy plug-in comes with everything including GroovyConsole
 Install Python plugin and [jython.jar](http://www.jython.org/downloads.html).
 
+- - -
 ### Java Script API calling Groovy
 
 ```java
@@ -47,6 +48,9 @@ public class JavaScriptAPIHelloWorld {
 
 }
 ```
+
+- - -
+
 #### Java Script API calling python
 
 ```java
