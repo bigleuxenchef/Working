@@ -1,4 +1,4 @@
-package javainterop2;
+package javainterop;
 
 // taken from https://www.codeproject.com/Tips/766506/Create-Groovy-Classes-Dynamically
 class ClassBuilder {

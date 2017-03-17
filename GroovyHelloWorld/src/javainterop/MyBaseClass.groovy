@@ -1,4 +1,4 @@
-package javainterop2
+package javainterop
 
 abstract class MyBaseClass extends Script {
     String name

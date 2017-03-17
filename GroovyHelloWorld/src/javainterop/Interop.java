@@ -1,4 +1,4 @@
-package javainterop2;
+package javainterop;
 
 import groovy.lang.GroovyObject;
 import groovy.lang.GroovyShell;
@@ -13,7 +13,7 @@ public class Interop {
     public static void main(String[] args) {
 
         try {
-            File file = new File("src/javainterop2/test1.groovy");
+            File file = new File("src/javainterop/test1.groovy");
             GroovyShell shell = new GroovyShell();
             Class<?> AnotherClass = (Class<?>) shell.parse(file).invokeMethod(
                     "getDynamicClass", GroovyShell.class.getClassLoader());

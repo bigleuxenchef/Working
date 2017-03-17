@@ -1,4 +1,4 @@
-package javainterop2
+package javainterop
 
 static Class getDynamicClass(ClassLoader loader) {
     def builder = new ClassBuilder(new GroovyClassLoader(loader))

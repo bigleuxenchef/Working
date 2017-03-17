@@ -1,4 +1,4 @@
-package javainterop2
+package javainterop
 
 import org.codehaus.groovy.control.CompilerConfiguration
 

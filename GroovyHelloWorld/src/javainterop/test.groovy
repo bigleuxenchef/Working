@@ -1,4 +1,4 @@
-package javainterop2
+package javainterop
 
 import java.util.Calendar
 def builder = new ClassBuilder(this.class.classLoader)
