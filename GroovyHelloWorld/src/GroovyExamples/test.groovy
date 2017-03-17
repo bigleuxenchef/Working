@@ -6,4 +6,4 @@ Binding binding = new Binding()
 binding.setVariable("example",new Example( this ))
 
 GroovyScriptEngine gse = new GroovyScriptEngine( [ '.' ] as String[] )
-gse.run( "foo.groovy", binding )
+gse.run( "src/GroovyExamples/foo.groovy", binding )

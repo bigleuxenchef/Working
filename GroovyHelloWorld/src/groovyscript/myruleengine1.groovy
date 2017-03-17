@@ -19,7 +19,7 @@ binding.setVariable("b", b);
 
 GroovyShell shell = new GroovyShell(binding);
 
-myscript = new File("src/rules/myrule.txt").text
+myscript = new File("src/groovyscript/myrule.txt").text
 
 script1 = shell.parse(myscript)
 

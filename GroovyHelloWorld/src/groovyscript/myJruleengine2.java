@@ -4,7 +4,7 @@
  * this program illustrate the usage of Java Script API with Groovy, trying to compare the equivalent with Groovy Shell
  */
 
-package rules;
+package groovyscript;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -33,7 +33,7 @@ public class myJruleengine2 {
 
 		long timeStart = System.currentTimeMillis();
 
-		String myscript = new String(Files.readAllBytes(Paths.get("src/rules/myrule.txt")));
+		String myscript = new String(Files.readAllBytes(Paths.get("src/groovyscript/myrule.txt")));
 
 		for (i = 0; i < 100000; i++) {
 			engine.put("c", i);

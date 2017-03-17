@@ -12,7 +12,7 @@
  * static void myinlinescript will served to compare execution time of inline java code and groovy script code
  * 
  */
-package rules;
+package groovyscript;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -55,14 +55,14 @@ public class myJruleengine1 {
 
 		GroovyShell shell = new GroovyShell(binding);
 
-		String myscript = new String(Files.readAllBytes(Paths.get("src/rules/myrule.txt")));
+		String myscript = new String(Files.readAllBytes(Paths.get("src/groovyscript/myrule.txt")));
 
 		Script script1 = shell.parse(myscript);
 		long k = 0;
 		long timeStart = System.currentTimeMillis();
 		// shell.setVariable("c",i);
 
-		for (i = 0; i < 10; i++) {
+		for (i = 0; i < 100000; i++) {
 			shell.setVariable("c", i);
 
 			k += Integer.parseInt((script1.run()).toString());
