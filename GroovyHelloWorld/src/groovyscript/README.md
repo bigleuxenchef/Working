@@ -251,9 +251,9 @@ public class myJruleengine2 {
 Java Scripting API/Groovy  Results Iteration # 100000 duration 1459 millis result 5000850000
 ```
 
-## Conclusions
+### Important Consideration between parsing, compiled or eval
 
-### Results
+#### Results
 
 ```
 Java/Groovy Script Results Iteration # 100000 duration 121 millis result 5000850000
@@ -292,7 +292,57 @@ here is the code to considered
 ```
 
 
-### Results
+
+
+## Python through Java Script API
+
+### Java Script API calling Groovy
+
+```java
+import static org.junit.Assert.assertEquals;
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+
+public class JavaScriptAPIHelloWorld {
+
+	public static void main(String[] args) throws Exception {	
+		ScriptEngineManager factory = new ScriptEngineManager();
+		ScriptEngine engine = factory.getEngineByName("groovy");
+		Integer sum = (Integer) engine.eval("(1..10).sum()");
+		assertEquals(new Integer(55), sum);
+		
+		engine.put("first", "HELLO");
+		engine.put("second", "world");
+		String result = (String) engine.eval("first.toLowerCase() + ' ' + second.toUpperCase()");
+		assertEquals("hello WORLD", result);
+		System.out.println("done!");
+	}
+
+}
+```
+
+- - -
+
+#### Java Script API calling python
+
+Same idea as for Groovy
+
+
+Results
+```
+Eval script
+Java Scripting API/python  Results Iteration # 100000 duration 67666 millis result 5000850000
+
+Compiled Script
+Java Scripting API/Python  Results Iteration # 100000 duration 255 millis result 5000850000
+```
+
+
+
+
+
+## Overall Results
 
 ```
 Java/Groovy Script Results Iteration # 100000 duration 121 millis result 5000850000
@@ -304,7 +354,18 @@ Java Scripting API/Groovy  Results Iteration # 100000 duration 1545 millis resul
 
 Compiled Script
 Java Scripting API/Groovy  Results Iteration # 100000 duration 551 millis result 5000850000
+
+
+Eval script
+Java Scripting API/python  Results Iteration # 100000 duration 67666 millis result 5000850000
+
+Compiled Script
+Java Scripting API/Python  Results Iteration # 100000 duration 255 millis result 5000850000
+
 ```
+
+Native Groovy API outpform the generic Java Script API however when using Java Script API, python is more optimized when compiled than groovy!
+
 
 # RUN Samples
 

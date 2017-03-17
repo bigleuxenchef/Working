@@ -2,18 +2,18 @@
 
 This section is dedicated at exploring various use cases around Groovy usage
 
-#### _package [groovyscript](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/groovyscript)_
+#### [package groovyscript](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/groovyscript)
 
 - Using groovy as scripting language by using the dynamic evaluation of script (either stored in file or string)
 - Using groovy from java 
   * Case 1 : using groovy java api
-  * Case 2 : using Java Script API
+  * Case 2 : using Java Script API (for both Python and Groovy)
   
-#### _package [javainterop](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/javainterop)_
+#### [package javainterop](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/javainterop)
   
 This package highlights the interopeability between java and groovy
 
-#### Program _[JavaScriptAPIHelloWorld](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/JavaScriptAPIHelloWorld.java)_
+#### [Program JavaScriptAPIHelloWorld](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/JavaScriptAPIHelloWorld.java)
   
 
 Demonstrate the use of java script API with groovy/python as engine
@@ -72,7 +72,7 @@ public class JavaScriptAPIHelloWorld {
 
 #### [Groovy Closure](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/Closure)
 
-After the inter-operability between java and groovy, we are ready now for exploring the power of closure, which allow returning function from groovy to java and injecting function into a groovy script. This is going to create a lot of good options for the one who wants to play with scripting at runtime.
+After the inter-operability between java and groovy (and to some extend python), we are ready now for exploring the power of closure, which allow returning function from groovy to java and injecting function into a groovy script. This is going to create a lot of good options for the one who wants to play with scripting at runtime.
 
 
 
