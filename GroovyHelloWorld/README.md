@@ -2,6 +2,15 @@
 
 This section is dedicated at exploring various use cases around Groovy usage
 
+#### [Program JavaScriptAPIHelloWorld](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/JavaScriptAPIHelloWorld.java)
+
+Demonstrate the use of java script API with groovy/python as engine
+
+#### [package javainterop](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/javainterop)
+  
+This package highlights the inter-operability between java and groovy
+
+
 #### [package groovyscript](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/groovyscript)
 
 - Using groovy as scripting language by using the dynamic evaluation of script (either stored in file or string)
@@ -10,14 +19,6 @@ This section is dedicated at exploring various use cases around Groovy usage
   * Case 2 : using Java Script API (for both Python and Groovy)
   * Case 3 : [ULTIMATE BINDING] wrapping up groovy script in a java class to alleviate bindings challenges.
   
-#### [package javainterop](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/javainterop)
-  
-This package highlights the interopeability between java and groovy
-
-#### [Program JavaScriptAPIHelloWorld](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/JavaScriptAPIHelloWorld.java)
-  
-
-Demonstrate the use of java script API with groovy/python as engine
 
 ##### Prerequisite 
 In Eclipse Groovy plug-in comes with everything including GroovyConsole
