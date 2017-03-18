@@ -371,16 +371,28 @@ Native Groovy API outpform the generic Java Script API however when using Java S
 
 ```
 //from eclipse
-//Case 1
+//Case 1 : compare java inline/java groovy script
 
 launch myJruleengine1.java
 
-//Case 2
+//Case 2 : Standard Java script API for  groovy : compare script performance between eval and compile and eval
 launch myJruleengine2.java
 
-//Case 3
-
+//Case 3 : Goovy program running groovy scipt : comparing performance between eval and parse/run
+ 
 launch myJruleengine1.groovy
+
+//Case 4 : Standard Java script API with python :compare script performance between eval and compile and eval
+
+Launch myJruleengine3.java
+
+//Case 5 : Ultimate bindings : echange java object from script to java and update
+// this demonstrate that a java objects can be accessed from the script
+// the script can change the object
+// the binding between java and groovyshell is dynamic, no need to repeat the command "binding" each time the java object is changing to inform the script being executed (be mindful, it is dynamic wihtin the same shell/engine).
+
+Launch myJruleengine4.java
+
 ```
 
 # Explore the power of scripting

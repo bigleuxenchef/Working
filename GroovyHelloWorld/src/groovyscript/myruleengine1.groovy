@@ -25,7 +25,7 @@ script1 = shell.parse(myscript)
 def timeStart = new Date()
 //shell.setVariable("c",i)
 
-for(i = 0; i< 100;i++)
+for(i = 0; i< 100000;i++)
 {
 	shell.setVariable("c",i)
 	k+=script1.run()

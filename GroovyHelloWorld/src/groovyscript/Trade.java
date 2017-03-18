@@ -1,7 +1,13 @@
+/**
+ * @author rumi
+ *
+ */
+
+
 package groovyscript;
 
 public class Trade {
- public long amount1, amount2;
+ public long amount1, amount2,ret;
 
  
 public long getAmount1() {
@@ -28,6 +34,7 @@ public Trade(long a, long b) {
 	super();
 	this.amount1 = a;
 	this.amount2 = b;
+	ret=0;
 }
 
 }

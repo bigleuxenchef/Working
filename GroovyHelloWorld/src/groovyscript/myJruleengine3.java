@@ -57,7 +57,6 @@ public class myJruleengine3 {
 
 		for (i = 0; i < 100000; i++) {
 			engine.put("c", i);
-			//k += Long.parseLong(cs.eval().toString());
 			cs.eval();
 			k+=Long.parseLong(engine.get("z").toString());
 			// System.out.printf("*a : %d b : %d c : %d\n",a,b,k);
