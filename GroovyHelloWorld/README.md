@@ -2,16 +2,16 @@
 
 This section is dedicated at exploring various use cases around Groovy usage
 
-#### [Program JavaScriptAPIHelloWorld](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/JavaScriptAPIHelloWorld.java)
+## [Program JavaScriptAPIHelloWorld](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/JavaScriptAPIHelloWorld.java)
 
 Demonstrate the use of java script API with groovy/python as engine
 
-#### [package javainterop](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/javainterop)
+## [package javainterop](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/javainterop)
   
 This package highlights the inter-operability between java and groovy
 
 
-#### [package groovyscript](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/groovyscript)
+## [package groovyscript](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/groovyscript)
 
 - Using groovy as scripting language by using the dynamic evaluation of script (either stored in file or string)
 - Using groovy from java 
@@ -57,7 +57,7 @@ Install Python plugin and [jython.jar](http://www.jython.org/downloads.html).
 		pyEngine.eval(new String(Files.readAllBytes(Paths.get("src/pyhelloworld.py"))));
 ```
 
-#### [Groovy Closure](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/Closure)
+## [Groovy Closure](https://github.com/bigleuxenchef/Working/tree/master/GroovyHelloWorld/src/Closure)
 
 After the inter-operability between java and groovy (and to some extend python), we are ready now for exploring the power of closure, which allow returning function from groovy to java and injecting function into a groovy script. This is going to create a lot of good options for the one who wants to play with scripting at runtime.
 
