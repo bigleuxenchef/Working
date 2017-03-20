@@ -9,7 +9,12 @@ Happy to share with anyone, happy anyone takes a copy, but I would recommend not
 This section will present 5 uses cases to demonstrate the power of Groovy/Java integration and interaction
 
 * `myJruleengine1.java`
+...Compare the execution time between java inline code and groovy parse/run code pattern
+...It will highlight the power and flexibility of embedding groovy script.
+...part of this use case is as well to play with the groovy script without changing the java apps calling it.
+...Binding concept are illustrated as well as decoupling the groovy parsing/compile from execution.
 * `myJruleengine2.java`
+
 * `myJruleengine3.java`
 * `myJruleengine4.java`
 * `myJruleengine1.groovy`
