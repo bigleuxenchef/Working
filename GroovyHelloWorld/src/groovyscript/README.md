@@ -8,17 +8,25 @@ Happy to share with anyone, happy anyone takes a copy, but I would recommend not
 
 This section will present 5 uses cases to demonstrate the power of Groovy/Java integration and interaction
 
-* `myJruleengine1.java`
+1. `myJruleengine1.java`
 
-   Compare the execution time between java inline code and groovy parse/run code pattern
+   Compare the execution time between java inline code and groovy parse/run code pattern of Groovy native script engine
    It will highlight the power and flexibility of embedding groovy script.
    part of this use case is as well to play with the groovy script without changing the java apps calling it.
    Binding concept are illustrated as well as decoupling the groovy parsing/compile from execution.
-* `myJruleengine2.java`
+2. `myJruleengine2.java`
 
-* `myJruleengine3.java`
-* `myJruleengine4.java`
-* `myJruleengine1.groovy`
+   Implement same as in previous point by using Java Scrit API instead of Groovy script engine.
+   This use case highlights the difference between a full evaluation of the script at each iteration and the only one compilation then may execution.
+3. `myJruleengine3.java`
+
+   Depending on the flexibility of the scripting language, this example applies same as previous use case by replacing groovy with python. Interestingly the execution time between groovy and python can be noticed.
+4. `myJruleengine4.java`
+
+   This example extends the learning of example 1 here under by exploring better way of binding data between java and the script engine. Here is highlighted a smart way to bind a significant amount of data without the script having to take care of anything. The script just need to know the various objects that can be used in its own execution environment.
+   A java object is bound to the script through an instanciation of the object coming from the java objects. Then the script can read and write to object at any time, making the interaction between the engine and java very convenient.
+   
+5. `myJruleengine1.groovy`
 
 
 # Groovy 'Hello World' samples
