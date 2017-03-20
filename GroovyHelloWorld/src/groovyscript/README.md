@@ -10,10 +10,10 @@ This section will present 5 uses cases to demonstrate the power of Groovy/Java i
 
 * `myJruleengine1.java`
 
-...Compare the execution time between java inline code and groovy parse/run code pattern
-...It will highlight the power and flexibility of embedding groovy script.
-...part of this use case is as well to play with the groovy script without changing the java apps calling it.
-...Binding concept are illustrated as well as decoupling the groovy parsing/compile from execution.
+   Compare the execution time between java inline code and groovy parse/run code pattern
+   It will highlight the power and flexibility of embedding groovy script.
+   part of this use case is as well to play with the groovy script without changing the java apps calling it.
+   Binding concept are illustrated as well as decoupling the groovy parsing/compile from execution.
 * `myJruleengine2.java`
 
 * `myJruleengine3.java`
