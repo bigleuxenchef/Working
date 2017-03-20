@@ -28,6 +28,8 @@ This section will present 5 uses cases to demonstrate the power of Groovy/Java i
    
 5. `myJruleengine1.groovy`
 
+   This use case is same as use case # 1 excepting this is full groovy rather than java/groovy. 
+
 
 # Groovy 'Hello World' samples
 
