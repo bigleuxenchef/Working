@@ -37,7 +37,7 @@ public class myJruleengine4 {
 		long timeStart = System.currentTimeMillis();
 
 		for (i = 0; i < 100000; i++) {
-
+			T.setAmount1(i);
 			shell.setVariable("c", i);
 
 			k += Integer.parseInt((script1.run()).toString());

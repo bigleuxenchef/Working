@@ -7,6 +7,6 @@ if (displayon)
 		T.ret = 150
 		
 	}
-if (T.amount1 > T.amount2) T.amount1 + c else T.amount2 + c
+if (T.amount1 > T.amount2) T.amount1 + c else T.amount2 + c // + T.amount1 - T.amount2
 
 
