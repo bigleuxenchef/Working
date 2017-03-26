@@ -17,7 +17,7 @@ This package highlights the inter-operability between java and groovy
 - Using groovy from java 
   * Case 1 : using groovy java api
   * Case 2 : using Java Script API (for both Python and Groovy)
-  * Case 3 : [ULTIMATE BINDING] wrapping up groovy script in a java class to alleviate bindings challenges.
+  * Case 3 : [ULTIMATE BINDING] wrapping up groovy script in a java class to alleviate bindings limitations of single parameter binding.
   
 
 ##### Prerequisite 

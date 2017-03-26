@@ -1,4 +1,4 @@
-continuing after groovy to investigate some ways to implement rules engines, trying to move away from scripting like format and moving towards a json approach
+continuing on after groovy to investigate some ways to implement rules engines, trying to move away from scripting like format and moving towards a json approach
 
 ## npm install node-rules
 
