@@ -60,8 +60,7 @@ let rule = new Rule({
   onFailure: function (event, almanac) {console.log('failure ' + event.params.data.green)},
   onSuccess: function (event, almanac)
      {
-	  console.log('success ' + event.params.data.green)
-	  return facts.a;
+	  console.log('success ' + event.params.data.green + almanac.factValue('success-events'))
      }  
   
 })
@@ -83,9 +82,9 @@ for (i=0;i<8;i++)
 	
 	let facts = { a: i, b : 6 , c : i}
 
- engine
+ console.log( engine
   .run(facts)
-  
+  .then(5))
   
   }
  /*
