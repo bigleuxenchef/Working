@@ -14,7 +14,7 @@ continuing on after groovy to investigate some ways to implement rules engines, 
 		R.stop();
 	},
 	"priority" : 4
-}
+}  
 ```
 
 
@@ -39,7 +39,7 @@ continuing on after groovy to investigate some ways to implement rules engines, 
 }
 ```
 
-###Notice
+### Notice
 the engine if mutli threaded and cannot be invoked as a function, this is difficult to run something like 
 
 ```
@@ -48,7 +48,7 @@ for (i=0;i<8;i++)
 	
 	let facts = { a: i, b : 6 , c : i}
 
- k += engine
+ engine
   .run(facts)
   
   }

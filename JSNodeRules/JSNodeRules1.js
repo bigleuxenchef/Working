@@ -35,9 +35,9 @@ let engine = new Engine()
 // if (a > b) a + c else b + c
 var a = 8;
 var b = 9;
-var i = 0;
+var i = 8888; // interesting to demonstrate that the rules is evaluated in this case once at run time
 var k = 0;
-
+var kk = 0;
 
 
 let rule = new Rule({
@@ -53,14 +53,17 @@ let rule = new Rule({
   event: {
     type: 'message',
     params: {
-      data: 'hello-world!'
+      data: 'hello-world!',
+      k :  { fact: 'b'}
    
     }
   },
-  onFailure: function (event, almanac) {console.log('failure ' + event.params.data.green)},
+  onFailure: function (event, almanac) {console.log('failure ' + event.params.data + event.params.k)},
   onSuccess: function (event, almanac)
      {
-	  console.log('success ' + event.params.data.green + almanac.factValue('success-events'))
+	  console.log('success ' + event.params.data + event.params.k )
+	  return 50;
+	//  almanac.addRuntimeFact('exitvalue',event.params.k)
      }  
   
 })
@@ -77,16 +80,21 @@ engine.addRule(rule)
 
 
 // run the engine
-for (i=0;i<8;i++)
+for (i=0;i<5;i++)
 {
 	
 	let facts = { a: i, b : 6 , c : i}
 
- console.log( engine
+ console.log('test ' + engine
   .run(facts)
-  .then(5))
+  .then(events => { // run() returns events with truthy conditions
+    events.map(event => {console.log("returned value " + event.params.k); 
+    return k+=event.params.k;})
+  }))
   
-  }
+}
+
+console.log("k" + k)
  /*
 	 * .then(triggeredEvents => { // engine returns a list of events with truthy
 	 * conditions triggeredEvents.map(event =>
