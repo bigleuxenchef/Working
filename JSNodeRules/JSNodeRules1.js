@@ -58,10 +58,12 @@ let rule = new Rule({
    
     }
   },
-  onFailure: function (event, almanac) {console.log('failure ' + event.params.data + event.params.k)},
+  onFailure: function (event, almanac) {console.log('failure ' + event.params.data )},
   onSuccess: function (event, almanac)
      {
-	  console.log('success ' + event.params.data + event.params.k )
+	  almanac.addRuntimeFact('k',almanac.factValue('a').then(a => {return a}))
+	  console.log('success ' + event.params.data + almanac.factValue('b').then(info => {console.log('info ' + info); return info; }))
+	  console.log('event ' + almanac.factValue('k').then(info => {console.log('** info ' + info); return info; }))
 	  return 50;
 	//  almanac.addRuntimeFact('exitvalue',event.params.k)
      }  
@@ -80,7 +82,7 @@ engine.addRule(rule)
 
 
 // run the engine
-for (i=0;i<5;i++)
+for (i=0;i<9;i++)
 {
 	
 	let facts = { a: i, b : 6 , c : i}
@@ -90,11 +92,13 @@ for (i=0;i<5;i++)
   .then(events => { // run() returns events with truthy conditions
     events.map(event => {console.log("returned value " + event.params.k); 
     return k+=event.params.k;})
-  }))
+  })
+
+ )
   
 }
 
-console.log("k" + k)
+console.log("k : " + k)
  /*
 	 * .then(triggeredEvents => { // engine returns a list of events with truthy
 	 * conditions triggeredEvents.map(event =>
