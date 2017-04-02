@@ -53,18 +53,20 @@ let rule = new Rule({
   event: {
     type: 'message',
     params: {
-      data: 'hello-world!',
-      k :  { fact: 'b'}
+      data: 'hello-world!'
    
     }
   },
   onFailure: function (event, almanac) {console.log('failure ' + event.params.data )},
   onSuccess: function (event, almanac)
      {
+	  let  aa = almanac.factValue('a').then(a => {return 9});
+	  let  bb = almanac.factValue('b').then(a => {return 7});
+	  let cc = aa + bb
+      console.log('aa ' + aa +'bb '+ bb +'cc ' + cc);
 	  almanac.addRuntimeFact('k',almanac.factValue('a').then(a => {return a}))
 	  console.log('success ' + event.params.data + almanac.factValue('b').then(info => {console.log('info ' + info); return info; }))
 	  console.log('event ' + almanac.factValue('k').then(info => {console.log('** info ' + info); return info; }))
-	  return 50;
 	//  almanac.addRuntimeFact('exitvalue',event.params.k)
      }  
   
@@ -82,7 +84,7 @@ engine.addRule(rule)
 
 
 // run the engine
-for (i=0;i<9;i++)
+for (i=0;i<10;i++)
 {
 	
 	let facts = { a: i, b : 6 , c : i}
@@ -90,7 +92,7 @@ for (i=0;i<9;i++)
  console.log('test ' + engine
   .run(facts)
   .then(events => { // run() returns events with truthy conditions
-    events.map(event => {console.log("returned value " + event.params.k); 
+    events.map(event => {console.log("returned value " + event.type + " k " + almanac.factValue('k').then(info => { return info; })); 
     return k+=event.params.k;})
   })
 

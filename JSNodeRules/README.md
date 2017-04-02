@@ -40,7 +40,7 @@ continuing on after groovy to investigate some ways to implement rules engines, 
 ```
 
 ### Notice
-the engine if mutli threaded and cannot be invoked as a function, this is difficult to run something like 
+the engine if mutli threaded and cannot be invoked as a function that returns a value, this is difficult to run something like 
 
 ```
 for (i=0;i<8;i++)
@@ -48,8 +48,8 @@ for (i=0;i<8;i++)
 	
 	let facts = { a: i, b : 6 , c : i}
 
- engine
-  .run(facts)
+ returnvalue = engine.run(facts) // this is going to return a "promise"
+ 
   
   }
 
