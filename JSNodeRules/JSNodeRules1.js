@@ -5,8 +5,8 @@
 // 'use strict'
 
 /*
- * This is the hello-world example from the README.
- * 
+ * This program is based on the hello-world example from the README.
+ * modify by Rumi
  * Usage: node ./examples/01-hello-world.js
  * 
  * For detailed output: DEBUG=json-rules-engine node
@@ -53,8 +53,8 @@ let rule = new Rule({
   event: {
     type: 'message',
     params: {
-      data: 'hello-world!'
-   
+      data: 'hello-world!',
+      k : "none"
     }
   },
   onFailure: function (event, almanac) {console.log('failure ' + event.params.data )},
@@ -75,13 +75,6 @@ let rule = new Rule({
 // add rule to engine
 engine.addRule(rule)
 
-/**
- * Define a 'displayMessage' as a constant value Fact values do NOT need to be
- * known at engine runtime; see the 03-dynamic-facts.js example for how to pull
- * in data asynchronously during runtime
- */
-
-
 
 // run the engine
 for (i=0;i<10;i++)
@@ -92,7 +85,7 @@ for (i=0;i<10;i++)
  console.log('test ' + engine
   .run(facts)
   .then(events => { // run() returns events with truthy conditions
-    events.map(event => {console.log("returned value " + event.type + " k " + almanac.factValue('k').then(info => { return info; })); 
+    events.map(event => {console.log("returned value " + event.type + " k " ); 
     return k+=event.params.k;})
   })
 
