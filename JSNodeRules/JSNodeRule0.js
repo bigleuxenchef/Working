@@ -29,12 +29,10 @@ let engine = new Engine()
 //example of implementing the following rule
 //		if (a > b) a + c else b + c
 
-var a = 8;
-//var b = 50;
+
 var i = 8888; // interesting to demonstrate that the rules is evaluated in this case once at run time
 var k = 0;
-var kk = 0;
-
+var p = [];
 
 let rule = new Rule({
 	// define the 'conditions' for when "hello world" should display
@@ -55,15 +53,16 @@ let rule = new Rule({
 		}
 	},
 	onFailure: function (event, almanac) {
-		console.log('failure ' + event.params.data);
 		almanac.factValue('b')
-		.then(a => 
+		.then(b => 
 		{almanac.factValue('c')
 			.then(c => 
 			{event.params.k = b + c;
+			k+=event.params.k;
+
 			console.log('failure ' + event.params.data);
 			console.log('event ' + JSON.stringify(event));
-			})})		
+			})})
 	
 	},
 	onSuccess: function (event, almanac)
@@ -73,15 +72,10 @@ let rule = new Rule({
 		{almanac.factValue('c')
 			.then(c => 
 			{event.params.k = a + c;
+			k+=event.params.k;
 			console.log('success ' + event.params.data);
 			console.log('event ' + JSON.stringify(event));
 			})})
-
-
-
-
-
-
 	}  
 
 })
@@ -100,8 +94,7 @@ let rule2 = new Rule({
 		type: 'message',
 		params: {
 			data: '*** lessThanInclusive ***',
-			fact : 'a',
-			k : { fact: 'b'}
+			fact : 'a'
 		}
 	}
 })
@@ -120,43 +113,52 @@ let rule3 = new Rule({
 		type: 'message',
 		params: {
 			data: '*** greaterThanInclusive ***',
-			fact : 'a',
-			k : { fact: 'b'}
+			fact : 'a'
 		}
 	}
 })
 
-//add rule to engine
+//add rules to engine
 engine.addRule(rule)
 engine.addRule(rule2)
 engine.addRule(rule3)
-
-
-
 
 //run the engine
 
 
 
-i = 5
+i = 56
 
 //facts can be defined using dynamic parameter resolved at runtime.
 
-let facts = { a: i, b : 6 , c : i/2}
+for (i=0;i<9;i++)
+{
+let facts = { a: 10, b : 9 , c : i}
 
 //engine is an asynchronous process that uses promise mechanism
 
-engine
+p.push(engine
+
 .run(facts)
 .then(events => { // run() returns events with truthy conditions
-	events.map(event => {console.log("returned value " + JSON.stringify(event)); 
-	//return k+=event.params.k;
-	
+	events.map(event => {console.log("returned value " + JSON.stringify(event)); 	
 	})
-})
+	console.log("k " + k);
+}))
+
+}
+
+  
+  
+console.log("##### final p " + JSON.stringify(p) +
+		Promise.resolve(p).then(console.log('promise solved'))
+		
+
+
+)
 
 
 
-
+	
 
 
