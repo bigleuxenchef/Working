@@ -47,8 +47,7 @@ public class myJruleengine1 {
 
 		long a = 8;
 		long b = 9;
-		long i = 0;
-
+		int i;
 		Binding binding = new Binding();
 		binding.setVariable("a", a);
 		binding.setVariable("b", b);
@@ -60,7 +59,6 @@ public class myJruleengine1 {
 		Script script1 = shell.parse(myscript);
 		long k = 0;
 		long timeStart = System.currentTimeMillis();
-		// shell.setVariable("c",i);
 
 		for (i = 0; i < 100000; i++) {
 			shell.setVariable("c", i);
