@@ -25,7 +25,7 @@ Closure cs = script1.run()
 // closure as defined in groovy script will be used as a function in the loop
 // in this example one parameter is the closure and the second calculated parameter
 
-for(i = 0 ; i < 3; i++)
+for(i = 0 ; i < 4; i++)
 	cs({A -> A * 2 * i},10 - i)
 	
 	
