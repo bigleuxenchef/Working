@@ -26,8 +26,7 @@ public class MyDroolsStateLess {
 
 				kSession.execute(facts);
 
-				// System.out.printf("*a : %d b : %d k :
-				// %d\n",facts.a,facts.b,facts.k);
+				System.out.printf("*a : %d b : %d k : %d\n",facts.a,facts.b,facts.k);
 			}
 
 			long TimeDuration = System.currentTimeMillis() - timeStart;
