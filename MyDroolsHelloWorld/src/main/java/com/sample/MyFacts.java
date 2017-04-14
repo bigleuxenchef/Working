@@ -38,7 +38,6 @@ public  final class MyFacts {
 	public long a = 10;
 	public long b = 9;
 	public long c;
-	//public int i; 
 	public long k=0;
 
 }
