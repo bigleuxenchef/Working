@@ -1,0 +1,40 @@
+//created on: 12-Apr-2017
+package com.sample
+
+//list any import classes here.
+
+import com.sample.MyFacts;
+
+
+//declare any global variables here
+
+
+rule "a > b"
+no-loop true
+    when
+      $f: MyFacts( a > b )
+    then
+    modify($f)
+    {
+        setK($f.getK() + $f.getA() + $f.getC())
+		
+		}
+			System.out.printf( "message a > b : k %d = %d + %d\n",$f.getK(),$f.getA(),$f.getC());		
+end
+
+rule "a <= b"
+no-loop true
+    when
+       $f : MyFacts( a <= b )
+    then
+    modify( $f)
+    {
+        setK($f.getK() + $f.getB() + $f.getC())
+        
+        }
+        	System.out.println( "message a <= b : " + $f.getK() );
+                
+end
+
+
+
