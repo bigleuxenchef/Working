@@ -1,9 +1,15 @@
+
+
 package com.sample;
 
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.StatelessKieSession;
 
+/**
+ * @author rumi april 2017
+ *
+ */
 public class MyDroolsStateLess {
 
 	public static final void main(String[] args) {
