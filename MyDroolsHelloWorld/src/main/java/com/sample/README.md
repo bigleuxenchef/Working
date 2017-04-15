@@ -41,4 +41,6 @@ This example shows diffent thing :
 
 ## MyDroolsStateFull.java
 
+this explain how to iterate on a rules
+
 ## MyDroolsStateLess.java
