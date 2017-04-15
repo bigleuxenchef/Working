@@ -17,7 +17,8 @@ This section will present 5 uses cases to demonstrate the power of Groovy/Java i
 2. `myJruleengine2.java`
 
    Implement same as in previous point by using Java Scrit API instead of Groovy script engine.
-   This use case highlights the difference between a full evaluation of the script at each iteration and the only one compilation then may execution.
+   This use case highlights the difference between a full evaluation of the script at each iteration and the up front one off evaluation and the many subsequent execution of the same script evaluated only once.
+  
 3. `myJruleengine3.java`
 
    Depending on the flexibility of the scripting language, this example applies same as previous use case by replacing groovy with python. Interestingly the execution time between groovy and python can be noticed.

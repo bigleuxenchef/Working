@@ -19,14 +19,28 @@ GroovyShell shell = new GroovyShell(binding);
 
 
 myscript = new File("src/Closure/myrule.txt").text
+print "\n**************************** Script ****************************\n" 
+print myscript
+print "\n****************************************************************\n"
 
 script1 = shell.parse(myscript)
 Closure cs = script1.run()
-for(i = 0 ; i < 3; i++)
+
+// closure as defined in groovy script will be used as a function in the loop
+// in this example one parameter is the closure and the second calculated parameter
+
+for(i = 0 ; i < 4; i++)
 	cs({A -> A * 2 * i},10 - i)
 	
 	
 myscript = new File("src/Closure/myrule2.txt").text
+
+print "\n**************************** Script ****************************\n" 
+print myscript
+print "\n****************************************************************\n"
+
+
+
 script1 = shell.parse(myscript)
 cs = script1.run()
 Closure c2

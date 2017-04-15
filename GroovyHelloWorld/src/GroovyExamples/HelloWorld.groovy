@@ -17,7 +17,7 @@ class myBaseClass {
 
 class HelloWorld {
 	
-	static main(args) {
+	public static main(args) {
 		def mytest = new myBaseClass();
 		mytest.a = 5;
 		mytest.b = 6;

@@ -1,0 +1,52 @@
+package com.sample
+ 
+import com.sample.DroolsTest.Message;
+
+rule "Hello World"
+no-loop true
+
+    when
+        m : Message( status == Message.HELLO, myMessage : message )
+    then
+        System.out.println( "Hello Rule : " + myMessage );
+        m.setMessage( "Goodbye cruel world" );
+        m.setStatus( Message.GOODBYE ); // demonstrate how rules are nested, this will trigger GoodBye Rule
+        update( m );
+end
+
+rule "GoodBye"
+no-loop true
+    when
+        m : Message( status == Message.GOODBYE, myMessage : message )
+        
+    then
+        m.setStatus( Message.BONJOUR );  // if you replace BONJOUR by HELLO, you will have a forever loop!
+        							   // be careful with cascased rules that can loop!
+        System.out.println( "GoodBye Rule : " +  myMessage );
+        update(m);
+end
+
+
+rule "BONJOUR"
+    when
+        Message( status == Message.BONJOUR, myMessage : message )
+    then
+        System.out.println( "Bonjour Rule " + myMessage );
+end
+
+rule "coucou"
+ when
+        Message( test == 0 )
+    then
+        System.out.println( "Coucou rule fire -- test == 0 " );
+end
+
+
+rule "CountDown"
+when 
+	m : Message ( x > 0)
+	then
+	    m.setX(m.getX() -1);	
+		System.out.println("Count Down Rule x : " + m.getX());
+		update(m);
+end
