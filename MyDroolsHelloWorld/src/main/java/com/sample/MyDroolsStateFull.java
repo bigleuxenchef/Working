@@ -15,7 +15,7 @@ public class MyDroolsStateFull {
 		try {
 			KieServices ks = KieServices.Factory.get();
 			KieContainer kContainer = ks.getKieClasspathContainer();
-			KieSession kSession = kContainer.newKieSession("ksession-rules");
+			KieSession kSession = kContainer.newKieSession("My-ksession-stateful");
 
 			MyFacts facts = new MyFacts();
 			FactHandle handle1;
