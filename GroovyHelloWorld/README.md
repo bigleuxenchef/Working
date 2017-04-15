@@ -62,4 +62,7 @@ Install Python plugin and [jython.jar](http://www.jython.org/downloads.html).
 After the inter-operability between java and groovy (and to some extend python), we are ready now for exploring the power of closure, which allow returning function from groovy to java and injecting function into a groovy script. This is going to create a lot of good options for the one who wants to play with scripting at runtime.
 
 
+****
+
+
 

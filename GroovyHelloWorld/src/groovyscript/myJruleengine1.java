@@ -45,7 +45,7 @@ public class myJruleengine1 {
 
 	public static void main(String[] args) throws IOException {
 
-		long a = 8;
+		long a = 10;
 		long b = 9;
 		long i = 0;
 

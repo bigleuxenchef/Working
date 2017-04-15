@@ -131,7 +131,7 @@ i = 56
 
 //facts can be defined using dynamic parameter resolved at runtime.
 
-for (i=0;i<9;i++)
+for (i=0;i<9000;i++)
 {
 let facts = { a: 10, b : 9 , c : i}
 
@@ -141,6 +141,7 @@ p.push(engine
 
 .run(facts)
 .then(events => { // run() returns events with truthy conditions
+	//this will show in this promise that only one structure of data can be kept at the same time for event.
 	events.map(event => {console.log("returned value " + JSON.stringify(event)); 	
 	})
 	console.log("k " + k);
