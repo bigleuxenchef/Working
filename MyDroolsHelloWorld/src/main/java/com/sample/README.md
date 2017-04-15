@@ -2,7 +2,7 @@
 
 ## Files to know before running Java Samples
 
-### [kmodule.xml](../../main/resources/kmodule.xml)
+### [kmodule.xml](../../../resources/META-INF/kmodule.xml)
 
 
 ## DroolsTest.java
