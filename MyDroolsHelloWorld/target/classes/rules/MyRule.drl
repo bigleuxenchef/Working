@@ -17,7 +17,6 @@ no-loop true
     modify($f)
     {
         setK($f.getK() + $f.getA() + $f.getC())
-		
 		}
 			System.out.printf( "message a > b : k %d = %d + %d\n",$f.getK(),$f.getA(),$f.getC());		
 end
@@ -29,11 +28,9 @@ no-loop true
     then
     modify( $f)
     {
-        setK($f.getK() + $f.getB() + $f.getC())
-        
+        setK($f.getK() + $f.getB() + $f.getC()) 
         }
         	System.out.println( "message a <= b : " + $f.getK() );
-                
 end
 
 
