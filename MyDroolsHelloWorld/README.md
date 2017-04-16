@@ -19,7 +19,7 @@
   
     <img src="images/EclipseDroolsStep3.png" width=50% >
     
-    
+     
   # @@@@@@@@@@@ test @@@@@@@@@@@@2
   
  
