@@ -20,4 +20,4 @@
     <img src="images/EclipseDroolsStep3.png" width=50% >
     
 
-## Use Cases [here](./src/main/java/com.example)
+## Use Cases [here](./src/main/java/com/sample)
