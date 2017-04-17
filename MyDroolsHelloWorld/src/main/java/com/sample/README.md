@@ -20,8 +20,6 @@ this file will setup 2 types of connections to Drools : Stateful and Statless, w
 
 If you have created your project with eclipse, those `drl` files should be in `src/main/resources/rules`
 
-
-
 ## DroolsTest.java
 
 This example shows diffent thing :
@@ -35,6 +33,14 @@ This example shows diffent thing :
 [java program :eyes:](DroolsTest.java)
 
 [Drools rules :eyes:](../../../resources/rules/Sample.drl)
+
+### Create Stateful container
+
+```
+			KieServices ks = KieServices.Factory.get();
+			KieContainer kContainer = ks.getKieClasspathContainer();
+			KieSession kSession = kContainer.newKieSession("My-ksession-stateful"); :warning:
+```
 
 
 
