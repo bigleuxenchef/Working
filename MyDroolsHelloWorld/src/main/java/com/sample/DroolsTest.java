@@ -38,20 +38,17 @@ public class DroolsTest {
 			System.out.println("**** Fire Two : fire different flavour ****");
 			kSession.fireAllRules();
 
-			System.out.println("**** Fire Three : loop implemented through rule : fire once ****");
-
 			message = new Message();
 			message.setX(5);
 			message.test = 1; // rules will not be fired if test == 1
 			message.setStatus(4);
-
+			System.out.println("**** Fire Three : loop implemented through rule : fire once ****");
 			FactHandle handle1 = kSession.insert(message);
 			kSession.fireAllRules();
 
-			System.out.println("**** Fire Three : loop implemented through rule: fire twice ****");
-
 			message.setX(3);
 			kSession.update(handle1, message);
+			System.out.println("**** Fire Three : loop implemented through rule: fire twice ****");
 			kSession.fireAllRules();
 
 		} catch (Throwable t) {

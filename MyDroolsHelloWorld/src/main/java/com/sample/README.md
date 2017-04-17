@@ -20,6 +20,10 @@ this file will setup 2 types of connections to Drools : Stateful and Statless, w
 
 If you have created your project with eclipse, those `drl` files should be in `src/main/resources/rules`
 
+
+
+
+
 ## DroolsTest.java
 
 This example shows diffent thing :
@@ -59,6 +63,75 @@ This example shows diffent thing :
 
 ```
 
+#### Output generated
+
+```
+**** Fire one : fire cascade ****
+Hello Rule : Hello World
+GoodBye Rule : Goodbye cruel world
+Bonjour Rule Goodbye cruel world
+```
+What happens here ?
+
+### Fire second set rule(s)
+
+```java
+			message = new Message();
+			message.setMessage("Hello World");
+			message.setStatus(Message.BONJOUR);
+			message.test = 0; // show that a new rule testing a variable will be fired
+
+			kSession.insert(message);
+			System.out.println("**** Fire Two : fire different flavour ****");
+			kSession.fireAllRules();
+```
+#### Output generated
+
+```
+**** Fire Two : fire different flavour ****
+Bonjour Rule Hello World
+Coucou rule fire -- test == 0 
+```
+### Fire third set rule(s)
+
+```java
+			message = new Message();
+			message.setX(5);
+			message.test = 1; // rules will not be fired if test == 1
+			message.setStatus(4);
+			System.out.println("**** Fire Three : loop implemented through rule : fire once ****");
+			FactHandle handle1 = kSession.insert(message);
+			kSession.fireAllRules();
+
+
+```
+#### Output generated
+
+```
+**** Fire Three : loop implemented through rule : fire once ****
+Count Down Rule x : 4
+Count Down Rule x : 3
+Count Down Rule x : 2
+Count Down Rule x : 1
+Count Down Rule x : 0
+```
+### Fire fourth set rule(s)
+
+```
+			message.setX(3);
+			kSession.update(handle1, message);
+			System.out.println("**** Fire Three : loop implemented through rule: fire twice ****");
+			kSession.fireAllRules();
+
+```
+#### Output generated
+
+```
+**** Fire Three : loop implemented through rule: fire twice ****
+Count Down Rule x : 2
+Count Down Rule x : 1
+Count Down Rule x : 0
+```
 
 
 ## MyDroolsStateFull.java
