@@ -20,4 +20,4 @@
     <img src="images/EclipseDroolsStep3.png" width=50% >
     
 
-## Use Cases [ :construction_worker:](./src/main/java/com/sample)
+## Use Cases [:eyes:](./src/main/java/com/sample)

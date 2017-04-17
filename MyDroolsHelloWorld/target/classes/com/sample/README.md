@@ -2,7 +2,7 @@
 
 ## Files to know before running Java Samples
 
-### kmodule.xml[here](../../../resources/META-INF/kmodule.xml)
+### kmodule.xml [:eyes:](../../../resources/META-INF/kmodule.xml)
 
 this file will setup 2 types of connections to Drools : Stateful and Statless, with the stateless being the default cofiguration if nothing is specified
 
@@ -32,9 +32,9 @@ This example shows diffent thing :
 - Rule setting condition that fires another rule
 - Rule implementing a count down loop
 
-[java program here](DroolsTest.java)
+[java program :eyes:](DroolsTest.java)
 
-[Drools rules here](../../../resources/rules/Sample.drl)
+[Drools rules :eyes:](../../../resources/rules/Sample.drl)
 
 
 
