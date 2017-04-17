@@ -10,54 +10,53 @@ import org.kie.api.runtime.rule.FactHandle;
  */
 public class DroolsTest {
 
-    public static final void main(String[] args) {
-        try {
-            // load up the knowledge base
-	        KieServices ks = KieServices.Factory.get();
-    	    KieContainer kContainer = ks.getKieClasspathContainer();
-        	KieSession kSession = kContainer.newKieSession("My-ksession-stateful");
+	public static final void main(String[] args) {
+		try {
+			// load up the knowledge base
+			KieServices ks = KieServices.Factory.get();
+			KieContainer kContainer = ks.getKieClasspathContainer();
+			KieSession kSession = kContainer.newKieSession("My-ksession-stateful");
 
-            // go !
-            Message message = new Message();
-            message.setMessage("Hello World");
-            message.setStatus(Message.HELLO);
-            message.test = 1; // rules will not be fired if test == 1
-            
-            kSession.insert(message);
-            System.out.println("**** Fire one : fire cascade ****");
-            kSession.fireAllRules();
- 
-            message = new Message();
-            message.setMessage("Hello World");
-            message.setStatus(Message.BONJOUR);
-            message.test = 0; // show that a new rule testing a variable will be fired
-            
-            kSession.insert(message);
-            System.out.println("**** Fire Two : fire different flavour ****");
-            kSession.fireAllRules();
-            
-            
-            System.out.println("**** Fire Three : loop : fire once ****");
+			// go !
+			Message message = new Message();
+			message.setMessage("Hello World");
+			message.setStatus(Message.HELLO);
+			message.test = 1; // rules will not be fired if test == 1
 
-            message = new Message();
-            message.setX(5);
-            message.test = 1; // rules will not be fired if test == 1
-            message.setStatus(4);
-
-            FactHandle handle1  = kSession.insert(message);
-            kSession.fireAllRules();
-            
-            System.out.println("**** Fire Three : loop : fire twice ****");
-            
-            message.setX(3);
-            kSession.update(handle1, message);
+			kSession.insert(message);
+			System.out.println("**** Fire one : fire cascade ****");
 			kSession.fireAllRules();
 
-            
-        } catch (Throwable t) {
-            t.printStackTrace();
-        }
-    }
+			message = new Message();
+			message.setMessage("Hello World");
+			message.setStatus(Message.BONJOUR);
+			message.test = 0; // show that a new rule testing a variable will be
+								// fired
+
+			kSession.insert(message);
+			System.out.println("**** Fire Two : fire different flavour ****");
+			kSession.fireAllRules();
+
+			System.out.println("**** Fire Three : loop : fire once ****");
+
+			message = new Message();
+			message.setX(5);
+			message.test = 1; // rules will not be fired if test == 1
+			message.setStatus(4);
+
+			FactHandle handle1 = kSession.insert(message);
+			kSession.fireAllRules();
+
+			System.out.println("**** Fire Three : loop : fire twice ****");
+
+			message.setX(3);
+			kSession.update(handle1, message);
+			kSession.fireAllRules();
+
+		} catch (Throwable t) {
+			t.printStackTrace();
+		}
+	}
 
     public static class Message {
 

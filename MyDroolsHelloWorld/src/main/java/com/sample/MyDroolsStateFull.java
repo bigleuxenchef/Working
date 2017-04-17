@@ -33,7 +33,8 @@ public class MyDroolsStateFull {
 				facts.swapAB(); // this will force the rule to alternate.
 				facts.setC(i);
 
-				kSession.update(handle1, facts);// refresh the engine to accept processing same object again
+				kSession.update(handle1, facts);// refresh the engine to accept
+												// processing same object again
 				kSession.fireAllRules();
 
 				// System.out.printf("*a : %d b : %d k : %d\n", facts.a,
