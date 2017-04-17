@@ -163,3 +163,25 @@ The specific of a stateful container is that an object that needs to be re-submi
 
 
 ## MyDroolsStateLess.java
+
+This example accomplished exactly same as stateful by using other statless connection
+
+```
+			KieServices kieServices = KieServices.Factory.get();
+			KieContainer kContainer = kieServices.getKieClasspathContainer();
+			StatelessKieSession kSession = kContainer.newStatelessKieSession();
+```
+
+Notice the very difference here `execute()` assume `facts` have been subimtted for the first time at each iteration. No state is kept in the container from each execution. There is no more `fireAllRules()`.
+
+
+```
+		for (i = 0; i < 100000; i++) {
+				facts.swapAB(); // this will force the rule to alternate.
+				facts.setC(i);
+
+				kSession.execute(facts);
+
+			//	System.out.printf("*a : %d b : %d k : %d\n",facts.a,facts.b,facts.k);
+			}
+```

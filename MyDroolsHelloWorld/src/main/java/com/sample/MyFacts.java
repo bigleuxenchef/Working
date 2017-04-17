@@ -1,10 +1,14 @@
 
 /**
- * @author rumi april 2017
+ * @author rumi April 2017
  *
  */
 package com.sample;
 
+
+// this class is used to persist facts that will be passed to drools engine
+// in other words Drools will process any object of class MyFacts and fire up any relevant sequence of rules
+// this class is very simple as this is mainly a POJO containing variables with their getters and setters
 public final class MyFacts {
 
 	public long getA() {
