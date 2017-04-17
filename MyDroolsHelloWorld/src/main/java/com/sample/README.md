@@ -39,7 +39,8 @@ This example shows diffent thing :
 ```
 			KieServices ks = KieServices.Factory.get();
 			KieContainer kContainer = ks.getKieClasspathContainer();
-			KieSession kSession = kContainer.newKieSession("My-ksession-stateful"); :warning:
+			KieSession kSession = kContainer.newKieSession("My-ksession-stateful");``` :warning:
+```
 ```
 
 
