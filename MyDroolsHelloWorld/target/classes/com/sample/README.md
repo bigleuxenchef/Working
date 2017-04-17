@@ -41,6 +41,30 @@ This example shows diffent thing :
 
 ## MyDroolsStateFull.java
 
-this explain how to iterate on a rules
+This example iterate a for loop on a stateful drools container. Here is the definition :
+
+```
+			KieServices ks = KieServices.Factory.get();
+			KieContainer kContainer = ks.getKieClasspathContainer();
+			KieSession kSession = kContainer.newKieSession("My-ksession-stateful");
+```
+The specific of a stateful container is that an object that needs to be re-submitted once again to the rules engine, needs to call ```update``` function.
+
+```
+			handle1 = kSession.insert(facts);
+					
+			for (i = 0; i < 100000; i++) {
+
+				facts.swapAB(); // this will force the rule to alternate.
+				facts.setC(i);
+
+				kSession.update(handle1, facts); // refresh the engine to accept processing same object again
+				kSession.fireAllRules();
+
+				// System.out.printf("*a : %d b : %d k : %d\n", facts.a,
+				// facts.b, facts.k);
+			}
+```
+
 
 ## MyDroolsStateLess.java
