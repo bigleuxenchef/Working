@@ -36,13 +36,28 @@ This example shows diffent thing :
 
 ### Create Stateful container
 
-```
+```java
 			KieServices ks = KieServices.Factory.get();
 			KieContainer kContainer = ks.getKieClasspathContainer();
-			KieSession kSession = kContainer.newKieSession("My-ksession-stateful");``` :warning:
-```
+			KieSession kSession = kContainer.newKieSession("My-ksession-stateful");
 ```
 
+`My-ksession-stateful` has to be created in kmodule.xml as described above.
+
+### Fire the first rule(s) 
+
+```java
+			// create and initialize an object Message
+			Message message = new Message();
+			message.setMessage("Hello World");
+			message.setStatus(Message.HELLO);
+			message.test = 1; // rules will not be fired if test == 1
+			// insert the object in the container queue
+			kSession.insert(message);
+			System.out.println("**** Fire one : fire cascade ****");
+			kSession.fireAllRules(); // fire the drools container
+
+```
 
 
 

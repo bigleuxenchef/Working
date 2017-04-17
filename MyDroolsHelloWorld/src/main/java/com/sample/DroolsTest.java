@@ -18,14 +18,15 @@ public class DroolsTest {
 			KieSession kSession = kContainer.newKieSession("My-ksession-stateful");
 
 			// go !
+			// create and initialize an object Message
 			Message message = new Message();
 			message.setMessage("Hello World");
 			message.setStatus(Message.HELLO);
 			message.test = 1; // rules will not be fired if test == 1
-
+			// insert the object in the container queue
 			kSession.insert(message);
 			System.out.println("**** Fire one : fire cascade ****");
-			kSession.fireAllRules();
+			kSession.fireAllRules(); // fire the drools container
 
 			message = new Message();
 			message.setMessage("Hello World");
@@ -37,7 +38,7 @@ public class DroolsTest {
 			System.out.println("**** Fire Two : fire different flavour ****");
 			kSession.fireAllRules();
 
-			System.out.println("**** Fire Three : loop : fire once ****");
+			System.out.println("**** Fire Three : loop implemented through rule : fire once ****");
 
 			message = new Message();
 			message.setX(5);
@@ -47,7 +48,7 @@ public class DroolsTest {
 			FactHandle handle1 = kSession.insert(message);
 			kSession.fireAllRules();
 
-			System.out.println("**** Fire Three : loop : fire twice ****");
+			System.out.println("**** Fire Three : loop implemented through rule: fire twice ****");
 
 			message.setX(3);
 			kSession.update(handle1, message);
