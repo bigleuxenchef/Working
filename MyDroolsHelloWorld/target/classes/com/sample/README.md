@@ -26,7 +26,7 @@ If you have created your project with eclipse, those `drl` files should be in `s
 
 ## DroolsTest.java
 
-This example shows diffent thing :
+This example shows different thing :
 
 - fire drools from a stateful connection
 - fire drools several times without recreating an object for each call
@@ -88,7 +88,7 @@ What happens here ?
 #### Output generated
 
 ```
-**** Fire Two : fire different flavour ****
+**** Fire Two : fire different flavor ****
 Bonjour Rule Hello World
 Coucou rule fire -- test == 0 
 ```
@@ -164,7 +164,7 @@ The specific of a stateful container is that an object that needs to be re-submi
 
 ## MyDroolsStateLess.java
 
-This example accomplished exactly same as stateful by using other statless connection
+This example accomplished exactly same as stateful by using other stateless connection
 
 ```
 			KieServices kieServices = KieServices.Factory.get();
@@ -172,7 +172,7 @@ This example accomplished exactly same as stateful by using other statless conne
 			StatelessKieSession kSession = kContainer.newStatelessKieSession();
 ```
 
-Notice the very difference here `execute()` assume `facts` have been subimtted for the first time at each iteration. No state is kept in the container from each execution. There is no more `fireAllRules()`.
+Notice the very difference here `execute()` assume `facts` have been submitted for the first time at each iteration. No state is kept in the container from each execution. There is no more `fireAllRules()`.
 
 
 ```

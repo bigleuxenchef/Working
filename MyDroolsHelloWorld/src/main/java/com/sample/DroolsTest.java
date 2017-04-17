@@ -19,36 +19,53 @@ public class DroolsTest {
 
 			// go !
 			// create and initialize an object Message
-			Message message = new Message();
-			message.setMessage("Hello World");
-			message.setStatus(Message.HELLO);
-			message.test = 1; // rules will not be fired if test == 1
+			Message message1 = new Message();
+			message1.setMessage("Hello World");
+			message1.setStatus(Message.HELLO);
+			message1.test = 1; // rules will not be fired if test == 1
 			// insert the object in the container queue
-			kSession.insert(message);
+			FactHandle handle1 = kSession.insert(message1); // save the handle
+															// for further usage
+
 			System.out.println("**** Fire one : fire cascade ****");
 			kSession.fireAllRules(); // fire the drools container
 
-			message = new Message();
-			message.setMessage("Hello World");
-			message.setStatus(Message.BONJOUR);
-			message.test = 0; // show that a new rule testing a variable will be
-								// fired
-
-			kSession.insert(message);
+			Message message2 = new Message();
+			message2.setMessage("Hello World");
+			message2.setStatus(Message.BONJOUR);
+			message2.test = 0; // show that a new rule testing a variable will
+								// be fired
+			FactHandle handle2 = kSession.insert(message2); // save the handle
+															// for further usage
 			System.out.println("**** Fire Two : fire different flavour ****");
 			kSession.fireAllRules();
 
-			message = new Message();
-			message.setX(5);
-			message.test = 1; // rules will not be fired if test == 1
-			message.setStatus(4);
+			Message message3 = new Message();
+			message3.setX(5);
+			message3.test = 1; // rules will not be fired if test == 1
+			message3.setStatus(4);
 			System.out.println("**** Fire Three : loop implemented through rule : fire once ****");
-			FactHandle handle1 = kSession.insert(message);
+			// save the handle of the message inserted
+			FactHandle handle3 = kSession.insert(message3);
 			kSession.fireAllRules();
 
-			message.setX(3);
-			kSession.update(handle1, message);
+			// here we add one flavor, as we have a stateful session
+			// same facts can be re-submitted when being changed!
+			message3.setX(3);
+			kSession.update(handle3, message3);
 			System.out.println("**** Fire Three : loop implemented through rule: fire twice ****");
+			kSession.fireAllRules();
+
+			// here under we will resubmitted previous facts to the rules engine
+			// as we are not changing the facts. the rules will start with
+			// previous status then the outcome may be different than the first
+			// time the rule was fired.
+
+			kSession.update(handle1, message1);
+			message3.setX(5);
+			kSession.update(handle3, message3);
+			System.out.println("**** Fire Four : fire the rules engine again for previous facts ****");
+
 			kSession.fireAllRules();
 
 		} catch (Throwable t) {
@@ -56,32 +73,33 @@ public class DroolsTest {
 		}
 	}
 
-    public static class Message {
+	public static class Message {
 
-        public static final int HELLO = 0;
-        public static final int GOODBYE = 1;
-        public static final int BONJOUR = 2;
+		public static final int HELLO = 0;
+		public static final int GOODBYE = 1;
+		public static final int BONJOUR = 2;
 
-        public int test;
-        private String message;
+		public int test;
+		private String message;
 
-        private int status;
-        private int x = 0;
-        public String getMessage() {
-            return this.message;
-        }
+		private int status;
+		private int x = 0;
 
-        public void setMessage(String message) {
-            this.message = message;
-        }
+		public String getMessage() {
+			return this.message;
+		}
 
-        public int getStatus() {
-            return this.status;
-        }
+		public void setMessage(String message) {
+			this.message = message;
+		}
 
-        public void setStatus(int status) {
-            this.status = status;
-        }
+		public int getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(int status) {
+			this.status = status;
+		}
 
 		public int getX() {
 			return x;
@@ -91,6 +109,6 @@ public class DroolsTest {
 			this.x = x;
 		}
 
-    }
+	}
 
 }
