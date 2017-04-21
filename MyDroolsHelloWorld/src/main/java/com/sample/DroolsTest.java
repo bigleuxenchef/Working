@@ -1,9 +1,16 @@
 package com.sample;
 
+
+import java.util.Collection;
+import java.util.Iterator;
+
 import org.kie.api.KieServices;
+import org.kie.api.definition.KiePackage;
+import org.kie.api.definition.rule.Rule;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.FactHandle;
+import org.kie.internal.definition.KnowledgePackage;
 
 /**
  * This is a sample class to launch a rule.
@@ -67,6 +74,23 @@ public class DroolsTest {
 			System.out.println("**** Fire Four : fire the rules engine again for previous facts ****");
 
 			kSession.fireAllRules();
+
+			System.out.println("**** Scanning KieBase to Retrieve Rules ****");
+
+			Collection<KiePackage> pckgs;
+
+			pckgs = kSession.getKieBase().getKiePackages();
+			Iterator<KiePackage> pckgsiterator = (Iterator<KiePackage>) pckgs.iterator();
+
+			while (pckgsiterator.hasNext()) {
+				KiePackage pckg = pckgsiterator.next();
+				Collection<Rule> rules = pckg.getRules();
+				String pckgname = pckg.getName();
+
+				for (Rule r : rules)
+					System.out.println("Collection Name" + pckgname + " - Rules Name " + r.getName());
+
+			}
 
 		} catch (Throwable t) {
 			t.printStackTrace();
