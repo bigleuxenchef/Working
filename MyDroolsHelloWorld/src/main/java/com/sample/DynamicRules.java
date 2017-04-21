@@ -22,7 +22,11 @@ import org.kie.internal.runtime.StatefulKnowledgeSession;
 @SuppressWarnings({ "deprecation", "restriction" })
 public class DynamicRules {
 	public static void main(String[] args) throws Exception {
-
+//TODO KnowledgePackage k;
+//TODO		k.getRules().iterator().
+		// add code to scan the rules from DRL file
+		// remove one particular rules or replace it by new one.
+	
 		Object[] objects = new Object[] { wrap(3), wrap(1), wrap(4), wrap(1), wrap(5) };
 
 		new RuleRunner().runRulesFromFile(new String[] { "Example1.drl", "Example2.drl" }, objects);
@@ -72,6 +76,7 @@ public class DynamicRules {
 
 			KnowledgeBase kbase = KnowledgeBaseFactory.newKnowledgeBase();
 			KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
+
 
 			for (int i = 0; i < rules.length; i++) {
 				kbuilder.add(resourcefactory.apply(rules[i]), ResourceType.DRL);
