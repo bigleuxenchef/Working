@@ -10,7 +10,6 @@ import org.kie.api.definition.rule.Rule;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.FactHandle;
-import org.kie.internal.definition.KnowledgePackage;
 
 /**
  * This is a sample class to launch a rule.
@@ -80,14 +79,17 @@ public class DroolsTest {
 			Collection<KiePackage> pckgs;
 
 			pckgs = kSession.getKieBase().getKiePackages();
+			
+			
+			
 			Iterator<KiePackage> pckgsiterator = (Iterator<KiePackage>) pckgs.iterator();
 
-			while (pckgsiterator.hasNext()) {
+			while (pckgsiterator.hasNext()) { // loop using while
 				KiePackage pckg = pckgsiterator.next();
 				Collection<Rule> rules = pckg.getRules();
 				String pckgname = pckg.getName();
 
-				for (Rule r : rules)
+				for (Rule r : rules) // loop using for eaxh
 					System.out.println("Collection Name" + pckgname + " - Rules Name " + r.getName());
 
 			}
