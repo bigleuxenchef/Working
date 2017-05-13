@@ -1,6 +1,5 @@
 package com.sample;
 
-
 import static org.junit.Assert.assertFalse;
 
 import java.util.Collection;
@@ -53,6 +52,7 @@ public class DynamicRules {
 		}
 
 		Function<String, Resource> FromString = x -> ResourceFactory.newByteArrayResource(x.getBytes());
+
 		Function<String, Resource> FromFile = x -> {
 			System.out.println("Loading file: " + x);
 			return ResourceFactory.newClassPathResource(x, this.getClass());
@@ -74,9 +74,8 @@ public class DynamicRules {
 			KnowledgeBase kbase = KnowledgeBaseFactory.newKnowledgeBase();
 			KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
 
-
-			for (int i = 0; i < rules.length; i++) {
-				kbuilder.add(resourcefactory.apply(rules[i]), ResourceType.DRL);
+			for (String rule : rules) {
+				kbuilder.add(resourcefactory.apply(rule), ResourceType.DRL);
 
 				assertFalse(kbuilder.getErrors().toString(), kbuilder.hasErrors());
 			}
@@ -84,12 +83,13 @@ public class DynamicRules {
 			Collection<KnowledgePackage> pkgs = kbuilder.getKnowledgePackages();
 			kbase.addKnowledgePackages(pkgs);
 			StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
-			for (int i = 0; i < facts.length; i++)
-			{
-				System.out.println("Inserting fact: " + facts[i]);
 
-				ksession.insert(facts[i]);
+			for (Object fact : facts) {
+				System.out.println("Inserting fact: " + fact);
+
+				ksession.insert(fact);
 			}
+
 			ksession.fireAllRules();
 
 		}

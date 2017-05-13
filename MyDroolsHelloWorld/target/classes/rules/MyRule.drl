@@ -18,7 +18,7 @@ no-loop true
     {
         setK($f.getK() + $f.getA() + $f.getC())
 		}
-			System.out.printf( "message a > b : k %d = %d + %d\n",$f.getK(),$f.getA(),$f.getC());		
+			//System.out.printf( "message a > b : k %d = %d + %d\n",$f.getK(),$f.getA(),$f.getC());		
 end
 
 rule "a <= b"
@@ -30,8 +30,23 @@ no-loop true
     {
         setK($f.getK() + $f.getB() + $f.getC()) 
         }
-        	System.out.println( "message a <= b : " + $f.getK() );
+        	//System.out.println( "message a <= b : " + $f.getK() );
 end
 
+
+rule "a>10"
+when
+	$f: MyFacts(a>10 && a<20)
+	then
+	System.out.printf( "message a > 10 : a %d \n",$f.getA());		
+end
+	
+	
+rule "a>20"
+when
+	$f: MyFacts(a>20)
+	then
+	System.out.printf( "message a > 20 : a %d \n",$f.getA());		
+end
 
 

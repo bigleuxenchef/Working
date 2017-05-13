@@ -31,7 +31,6 @@ public class DroolsTest {
 			message1.test = 1; // rules will not be fired if test == 1
 			// insert the object in the container queue
 			FactHandle handle1 = kSession.insert(message1); // save the handle
-															// for further usage
 
 			System.out.println("**** Fire one : fire cascade ****");
 			kSession.fireAllRules(); // fire the drools container
@@ -89,7 +88,7 @@ public class DroolsTest {
 				Collection<Rule> rules = pckg.getRules();
 				String pckgname = pckg.getName();
 
-				for (Rule r : rules) // loop using for eaxh
+				for (Rule r : rules) // loop using for each
 					System.out.println("Collection Name" + pckgname + " - Rules Name " + r.getName());
 
 			}

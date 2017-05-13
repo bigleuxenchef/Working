@@ -16,7 +16,7 @@ this file will setup 2 types of connections to Drools : Stateful and Statless, w
 </kmodule>
 
 ```
-### Drools files `drl`
+### Drools files `drl` [:eyes:](../../../resources/META-INF/kmodule.xml)
 
 If you have created your project with eclipse, those `drl` files should be in `src/main/resources/rules`
 
@@ -135,6 +135,7 @@ Count Down Rule x : 0
 
 
 ## MyDroolsStateFull.java
+---
 
 This example iterate a for loop on a stateful drools container. Here is the definition :
 
@@ -160,9 +161,15 @@ The specific of a stateful container is that an object that needs to be re-submi
 				// facts.b, facts.k);
 			}
 ```
+### Time to run 100000 iteration of the same rule
+
+```
+Drools Results Iteration # 100000 duration 527 millis result 5000850000
+```
 
 
 ## MyDroolsStateLess.java
+---
 
 This example accomplished exactly same as stateful by using other stateless connection
 
@@ -184,4 +191,10 @@ Notice the very difference here `execute()` assume `facts` have been submitted f
 
 			//	System.out.printf("*a : %d b : %d k : %d\n",facts.a,facts.b,facts.k);
 			}
+```
+
+### Time to run 100000 iteration of the same rule
+
+```
+Drools Results Iteration # 100000 duration 2258 millis result 5000850000
 ```
