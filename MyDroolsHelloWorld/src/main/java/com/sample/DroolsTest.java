@@ -1,6 +1,5 @@
 package com.sample;
 
-
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -78,9 +77,7 @@ public class DroolsTest {
 			Collection<KiePackage> pckgs;
 
 			pckgs = kSession.getKieBase().getKiePackages();
-			
-			
-			
+
 			Iterator<KiePackage> pckgsiterator = (Iterator<KiePackage>) pckgs.iterator();
 
 			while (pckgsiterator.hasNext()) { // loop using while
