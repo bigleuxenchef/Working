@@ -1,14 +1,15 @@
 # Drools Hello World
 
-## Use Cases [:eyes:](./src/main/java/com/sample)
+## Use Cases [:eyes:](./src/main/java/com/sample/README.md)
 
-The use cases will take you through some highights on what Drools is about, such as :
+The use cases will take you through some highlights on what Drools is about, such as :
 
 - Stateless vs. Stateful concept
 - Rule definition
 - nested rules, rules changing sate
 - implementing loop through rule
 
+Use Cases are [:eyes:here](./src/main/java/com/sample/README.md)
 ## Prerequisites
 
 ### Eclipse Plug in
