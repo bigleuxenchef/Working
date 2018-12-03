@@ -18,7 +18,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/rumi/jython2.7.0/jython.jar"/>
 	<classpathentry kind="con" path="GROOVY_SUPPORT"/>
+	<classpathentry kind="lib" path="/usr/local/Cellar/jython/2.7.0/libexec/jython.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
